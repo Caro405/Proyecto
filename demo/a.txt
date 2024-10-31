@@ -1,4 +1,5 @@
 ./ejecutar-mysql.sh
+demo/ejecutar-mysql.sh
 password secret
 
 CREAR TABLA
@@ -15,6 +16,13 @@ EXIT;
 TABLA USUARIOS 
 CREATE TABLE usuario(
     usuario_id INT AUTO_INCREMENT PRIMARY KEY
+    correo VARCHAR (100) NOT NULL,
     nombre VARCHAR (100) NOT NULL,
     rol VARCHAR (100)
 );
+
+docker start red-db
+docker ps
+
+docker exec -it red-db \
+mysql -u root -p 
