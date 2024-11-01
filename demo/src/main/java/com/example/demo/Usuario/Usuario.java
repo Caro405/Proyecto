@@ -1,4 +1,6 @@
 package com.example.demo.Usuario;
+//import javax.persistence.Id;
+//import javax.persistence.GeneratedValue;
 
 public class Usuario {
 

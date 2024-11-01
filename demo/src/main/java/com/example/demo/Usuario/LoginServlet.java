@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet{
                 if (resultado.next()){
                     respuesta.getWriter().println("Inicio de sesion exitoso");
                 }else{
-                    respuesta.getWriter().println("Usuario o/y contraseña inválidos");
+                    respuesta.getWriter().println("Correo o/y contraseña inválidos");
                 }
             }catch (SQLException e){
                 e.printStackTrace();

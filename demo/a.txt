@@ -26,3 +26,12 @@ docker ps
 
 docker exec -it red-db \
 mysql -u root -p 
+
+use red;
+select * from usuario;
+
+
+git status
+ git add . 
+git commit -m "Descripción de los cambios realizados" 
+git push origin main
