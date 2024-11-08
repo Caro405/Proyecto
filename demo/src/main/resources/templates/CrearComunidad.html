@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crear Comunidad</title>
+<style>
+    :root {
+        --color-fondo: #eeded2;
+        --color-cabecera: #b3cde0;
+        --color-input: #fff;
+        --color-borde: #000;
+        --color-texto: #000;
+        --color-boton-crear: #1a3b5d;
+        --color-texto-boton: #fff;
+        --color-menu: #ffffff;
+        --color-menu-borde: #000;
+        --padding-campos: 10px;
+        --tamano-input: 100%;
+        --ancho-boton: 100px;
+        --alto-boton: 40px;
+        --margen: 15px;
+        --espacio-campos: 10px;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: var(--color-fondo);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .contenedor {
+        width: 300px;
+        background-color: var(--color-fondo);
+        text-align: center;
+        box-sizing: border-box;
+        position: relative;
+        padding-top: 60px;
+    }
+
+    .cabecera {
+        background-color: var(--color-cabecera);
+        color: var(--color-texto);
+        padding: var(--padding-campos);
+        font-size: 18px;
+        border: 2px solid var(--color-borde);
+        border-radius: 10px;
+        margin-bottom: var(--margen);
+    }
+
+    .menu-icono {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 35px;
+        height: 35px;
+        background-color: #d1d1d1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        cursor: pointer;
+        border: 2px solid var(--color-borde);
+    }
+
+    .menu-desplegable {
+        display: none;
+        position: absolute;
+        top: 50px;
+        left: 10px;
+        background-color: var(--color-menu);
+        border: 2px solid var(--color-menu-borde);
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 150px;
+        z-index: 1000;
+    }
+
+    .menu-desplegable a {
+        display: block;
+        padding: 10px;
+        color: var(--color-borde);
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    .menu-desplegable a:hover {
+        background-color: #e0e0e0;
+    }
+
+    label {
+        display: block;
+        color: var(--color-texto);
+        font-size: 14px;
+        margin-top: var(--espacio-campos);
+        margin-bottom: 5px;
+    }
+
+    input[type="text"] {
+        width: var(--tamano-input);
+        padding: var(--padding-campos);
+        border: 2px solid var(--color-borde);
+        border-radius: 20px;
+        background-color: var(--color-input);
+        box-sizing: border-box;
+        margin-bottom: var(--espacio-campos);
+    }
+
+    .boton {
+        width: var(--ancho-boton);
+        height: var(--alto-boton);
+        border: 2px solid var(--color-borde);
+        color: var(--color-texto-boton);
+        font-size: 14px;
+        cursor: pointer;
+        margin-top: var(--margen);
+        border-radius: 10px;
+        background-color: var(--color-boton-crear);
+    }
+</style>
+</head>
+<body>
+
+<div class="contenedor">
+    <div class="menu-icono" onclick="toggleMenu()">☰</div>
+    <div class="menu-desplegable" id="menu">
+        <a href="#">Perfil</a>
+        <a href="#">Tus comunidades</a>
+        <a href="#">Explorar</a>
+    </div>
+
+    <div class="cabecera">Crear comunidad</div>
+
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre">
+
+    <label for="descripcion">Descripción:</label>
+    <input type="text" id="descripcion" name="descripcion">
+
+    <label for="etiquetas">Etiquetas:</label>
+    <input type="text" id="etiquetas" name="etiquetas">
+
+    <button class="boton">Crear</button>
+</div>
+
+<script>
+    function toggleMenu() {
+        var menu = document.getElementById("menu");
+        if (menu.style.display === "none" || menu.style.display === "") {
+            menu.style.display = "block";
+        } else {
+            menu.style.display = "none";
+        }
+    }
+
+    // Cierra el menú si se hace clic fuera de él
+    window.onclick = function(event) {
+        var menu = document.getElementById("menu");
+        if (!event.target.matches('.menu-icono')) {
+            menu.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>
