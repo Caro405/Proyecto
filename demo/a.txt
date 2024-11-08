@@ -26,3 +26,12 @@ docker ps
 
 docker exec -it red-db \
 mysql -u root -p 
+
+inicar el contendor
+docker-compose up -d
+
+Parece que el cliente de MySQL no está instalado en tu entorno Gitpod. Puedes instalar el cliente de MySQL ejecutando el siguiente comando:
+
+bash
+Copiar código
+sudo apt-get update && sudo apt-get install -y mysql-client

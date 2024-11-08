@@ -1,17 +1,36 @@
- #definicion del proyecto en docker
-  
-    # servicios a ejecutar
-    services:
-        # MySQL con nombre `red-db`
-        db:
-            image: mysql:8.0.31
-            container_name: red-db
-            environment:
-            - MYSQL_DATABASE=red
-            - MYSQL_USER=red
-            - MYSQL_PASSWORD=secret
-            - MYSQL_ROOT_PASSWORD=secret
-            ports:
-            - '3306:3306'
-            expose:
-            - '3306'
+
+services:
+  db:
+    image: mysql:8.0.31
+    container_name: red-db
+    environment:
+      - MYSQL_DATABASE=red
+      - MYSQL_USER=red
+      - MYSQL_PASSWORD=secret
+      - MYSQL_ROOT_PASSWORD=secret
+    ports:
+      - '3306:3306'
+    networks:
+      - red-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: .
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/red
+      - SPRING_DATASOURCE_USERNAME=red
+      - SPRING_DATASOURCE_PASSWORD=secret
+      - SPRING_DATASOURCE_DRIVER_CLASS_NAME=com.mysql.cj.jdbc.Driver
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - red-network
+
+networks:
+  red-network:
+    driver: bridge

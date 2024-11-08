@@ -1,9 +1,13 @@
 package com.example.demo.Comunidad;
 
 import java.util.Date;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
+@Entity
 public class Comunidad {
 
+    @Id
     private Long comunidadId;
     private String nombre;
     private String descripcion;

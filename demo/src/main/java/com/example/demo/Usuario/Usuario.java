@@ -1,7 +1,12 @@
 package com.example.demo.Usuario;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Usuario {
 
+    @Id
     Long id_usuario;
     String nombre;
     String correo;
