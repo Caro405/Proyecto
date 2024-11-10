@@ -1,9 +1,12 @@
 package com.example.demo.Comunidad;
 
-import com.example.demo.Usuario.Usuario; // Importación necesaria
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.example.demo.Archivo.Archivo;
+
+import com.example.demo.Entidades.Archivo;
+import com.example.demo.Entidades.Comunidad;
+import com.example.demo.Entidades.Usuario;
+
 import java.util.List;
 
 @RestController
