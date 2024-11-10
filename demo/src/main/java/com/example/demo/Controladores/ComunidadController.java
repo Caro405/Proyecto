@@ -1,18 +1,20 @@
-package com.example.demo.Comunidad;
+package com.example.demo.Controladores;
 
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.demo.Entidades.Archivo;
+/*import com.example.demo.Entidades.Archivo;
 import com.example.demo.Entidades.Comunidad;
 import com.example.demo.Entidades.Usuario;
+import com.example.demo.Servicio.ComunidadService;
 
 import java.util.List;
+*/
 
-@RestController
+//@Controller
 @RequestMapping("/comunidades")
 public class ComunidadController {
-
+/*
     @Autowired
     private ComunidadService comunidadService;
 
@@ -46,4 +48,5 @@ public class ComunidadController {
     public void publicarArchivo(@PathVariable Long id, @RequestBody Archivo archivo) {
         comunidadService.publicarArchivo(id, archivo);
     }
+        */
 }
