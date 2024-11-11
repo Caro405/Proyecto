@@ -72,25 +72,30 @@ public class CuentaServicio {
     }
 
     //
-    public boolean login (String correo, String contrasena){
+    public boolean login(String correo, String contrasena) {
         String u = "SELECT * FROM Usuario WHERE correo = ? AND contrasena = ?";
         
         try (Connection conexion = DatabaseManager.getConnection();
-        PreparedStatement pre = conexion.prepareStatement(u)){
+             PreparedStatement pre = conexion.prepareStatement(u)) {
+            
+            // Usa los parámetros `correo` y `contrasena` directamente
             pre.setString(1, correo);
             pre.setString(2, contrasena);
-
-            try (ResultSet resp = pre.executeQuery()){
-                if (resp.next()){
+    
+            try (ResultSet resp = pre.executeQuery()) {
+                if (resp.next()) {
                     System.out.println("Bienvenido");
                     return true;
                 }
-            }catch(SQLException e){
-                System.out.println("Error al iniciar sesión"+ e.getMessage());
+            } catch (SQLException e) {
+                System.out.println("Error al consultar resultados: " + e.getMessage());
             }
-            return false;
+        } catch (SQLException e) {
+            System.out.println("Error en la conexión: " + e.getMessage());
         }
+        return false;
     }
+    
 
 
     
