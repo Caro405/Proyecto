@@ -44,8 +44,23 @@ git commit -m "Descripción de los cambios realizados"
 git push origin main
 
 
-Deshabilitar las pruebas temporalmente
+Para empezar el programa
+cd demo
+sdk install java 23.0.1-zulu
 mvn clean install -DskipTests
-
+docker-compose up -d
+docker start red-db
 docker-compose down
 docker-compose up --build
+
+
+Si hacen cambios usar estos comandos 
+docker-compose restart app
+mvn clean install -DskipTests
+docker-compose up -d
+docker start red-db
+docker-compose down
+docker-compose up --build
+
+URL
+https://8080-caro405-proyecto-3q0d1xy7cbd.ws-us116.gitpod.io/Login

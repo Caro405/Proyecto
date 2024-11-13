@@ -12,10 +12,14 @@ import com.example.demo.Servicio.CuentaServicio;
 public class LoginController {
     private final CuentaServicio cuentaServicio;
 
-    public LoginController(CuentaServicio cuentaServicio){this.cuentaServicio = cuentaServicio;}
+    public LoginController(CuentaServicio cuentaServicio) {
+        this.cuentaServicio = cuentaServicio;
+    }
 
     @GetMapping("/")
-    public String redirigirLogin(){return "redirect:/Login";}
+    public String redirigirLogin() {
+        return "redirect:/Login";
+    }
 
     @GetMapping("/Login")
     public String showLoginPage(@RequestParam(required = false) String param) {
@@ -23,17 +27,15 @@ public class LoginController {
     }
 
     @PostMapping("/Login")
-    public String login (@RequestParam String correo,
-                        @RequestParam String contrasenia,
-                        RedirectAttributes redirectAttributes){
-                            boolean okLoginp = cuentaServicio.login(correo, contrasenia);
-                            if (okLoginp){
-                                return "redirect:/ComunidadA" ;
-                            }else{
-                                redirectAttributes.addFlashAttribute("error", "usuario o contraseña incorrectos");
-                            return "redirect:/Login";
-                            }
-                            
-                        }
-
+    public String login(@RequestParam String correo,
+                        @RequestParam String contrasena,
+                        RedirectAttributes redirectAttributes) {
+        boolean okLoginp = cuentaServicio.login(correo, contrasena);
+        if (okLoginp) {
+            return "redirect:/ComunidadA";
+        } else {
+            redirectAttributes.addFlashAttribute("error", "usuario o contraseña incorrectos");
+            return "redirect:/Login";
+        }
+    }
 }

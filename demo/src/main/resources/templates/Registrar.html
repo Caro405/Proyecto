@@ -1,101 +1,104 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pantalla de Crear Cuenta</title>
-<style>
-    :root {
-        --color-fondo: #eeded2;
-        --color-cabecera: #b3cde0;
-        --color-input: #fff;
-        --color-borde: #000;
-        --color-texto: #000;
-        --color-boton-aceptar: #1a3b5d;
-        --color-texto-boton: #fff;
-        --padding-campos: 10px;
-        --tamano-input: 100%;
-        --ancho-boton: 100px;
-        --alto-boton: 40px;
-        --margen: 15px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantalla de Crear Cuenta</title>
+    <style>
+        :root {
+            --color-fondo: #eeded2;
+            --color-cabecera: #b3cde0;
+            --color-input: #fff;
+            --color-borde: #000;
+            --color-texto: #000;
+            --color-boton-aceptar: #1a3b5d;
+            --color-texto-boton: #fff;
+            --padding-campos: 10px;
+            --tamano-input: 100%;
+            --ancho-boton: 100px;
+            --alto-boton: 40px;
+            --margen: 15px;
+        }
 
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background-color: var(--color-fondo);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: var(--color-fondo);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-    .contenedor {
-        width: 300px;
-        background-color: var(--color-fondo);
-        text-align: center;
-        box-sizing: border-box;
-    }
+        .contenedor {
+            width: 300px;
+            background-color: var(--color-fondo);
+            text-align: center;
+            box-sizing: border-box;
+        }
 
-    .cabecera {
-        background-color: var(--color-cabecera);
-        color: var(--color-texto);
-        padding: var(--padding-campos);
-        font-size: 18px;
-        border: 2px solid var(--color-borde);
-        border-radius: 10px;
-        margin-bottom: var(--margen);
-    }
+        .cabecera {
+            background-color: var(--color-cabecera);
+            color: var(--color-texto);
+            padding: var(--padding-campos);
+            font-size: 18px;
+            border: 2px solid var(--color-borde);
+            border-radius: 10px;
+            margin-bottom: var(--margen);
+        }
 
-    label {
-        display: block;
-        color: var(--color-texto);
-        font-size: 14px;
-        margin-top: var(--margen);
-        margin-bottom: 5px;
-    }
+        label {
+            display: block;
+            color: var(--color-texto);
+            font-size: 14px;
+            margin-top: var(--margen);
+            margin-bottom: 5px;
+        }
 
-    input[type="text"],
-    input[type="password"] {
-        width: var(--tamano-input);
-        padding: var(--padding-campos);
-        border: 2px solid var(--color-borde);
-        border-radius: 20px;
-        background-color: var(--color-input);
-        box-sizing: border-box;
-    }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: var(--tamano-input);
+            padding: var(--padding-campos);
+            border: 2px solid var(--color-borde);
+            border-radius: 20px;
+            background-color: var(--color-input);
+            box-sizing: border-box;
+        }
 
-    .boton {
-        width: var(--ancho-boton);
-        height: var(--alto-boton);
-        border: 2px solid var(--color-borde);
-        color: var(--color-texto-boton);
-        font-size: 14px;
-        cursor: pointer;
-        margin-top: var(--margen);
-        border-radius: 10px;
-        background-color: var(--color-boton-aceptar);
-    }
-</style>
+        .boton {
+            width: var(--ancho-boton);
+            height: var(--alto-boton);
+            border: 2px solid var(--color-borde);
+            color: var(--color-texto-boton);
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: var(--margen);
+            border-radius: 10px;
+            background-color: var(--color-boton-aceptar);
+        }
+    </style>
 </head>
 <body>
 
 <div class="contenedor">
     <div class="cabecera">Crear cuenta</div>
+    <!-- Agregar el formulario con la ruta y el método correctos -->
+    <form action="/Registrar" method="post">
+        <label for="correo">Correo:</label>
+        <input type="email" id="correo" name="correo" required>
 
-    <label for="correo">Correo:</label>
-    <input type="text" id="correo" name="correo">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
 
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre">
+        <label for="rol">Rol:</label>
+        <input type="text" id="rol" name="rol" required>
 
-    <label for="rol">Rol:</label>
-    <input type="text" id="rol" name="rol">
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" id="contrasena" name="contrasena" required>
 
-    <label for="contrasena">Contraseña:</label>
-    <input type="password" id="contrasena" name="contrasena">
-
-    <button class="boton">Aceptar</button>
+        <button type="submit" class="boton">Aceptar</button>
+    </form>
 </div>
 
 </body>
