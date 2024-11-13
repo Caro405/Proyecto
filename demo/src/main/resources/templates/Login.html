@@ -1,123 +1,119 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pantalla de Inicio de Sesión</title>
-<style>
-    :root {
-        --color-fondo: #eeded2;
-        --color-cabecera: #b3cde0;
-        --color-input: #fff;
-        --color-borde: #000;
-        --color-texto: #000;
-        --color-boton-ingresar: #9c5b3d;
-        --color-boton-crear: #1a3b5d;
-        --color-texto-boton: #fff;
-        --padding-campos: 10px;
-        --tamano-input: 100%;
-        --ancho-boton: 80px;
-        --alto-boton: 40px;
-        --margen: 15px;
-    }
-
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background-color: var(--color-fondo);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
-
-    .contenedor {
-        width: 300px;
-        background-color: var(--color-fondo);
-        text-align: center;
-        box-sizing: border-box;
-    }
-
-    .cabecera {
-        background-color: var(--color-cabecera);
-        color: var(--color-texto);
-        padding: var(--padding-campos);
-        font-size: 18px;
-        border: 2px solid var(--color-borde);
-        border-radius: 10px;
-        margin-bottom: var(--margen);
-    }
-
-    label {
-        display: block;
-        color: var(--color-texto);
-        font-size: 14px;
-        margin-top: var(--margen);
-        margin-bottom: 5px;
-    }
-
-    input[type="text"],
-    input[type="password"] {
-        width: var(--tamano-input);
-        padding: var(--padding-campos);
-        border: 2px solid var(--color-borde);
-        border-radius: 20px;
-        background-color: var(--color-input);
-        box-sizing: border-box;
-    }
-
-    .boton {
-        width: var(--ancho-boton);
-        height: var(--alto-boton);
-        border: 2px solid var(--color-borde);
-        color: var(--color-texto-boton);
-        font-size: 14px;
-        cursor: pointer;
-        margin-top: var(--margen);
-        border-radius: 10px;
-    }
-
-    .boton-ingresar {
-        background-color: var(--color-boton-ingresar);
-    }
-
-    .boton-crear {
-        background-color: var(--color-boton-crear);
-        width: 100px;
-    }
-
-    .texto-registro {
-        margin-top: var(--margen);
-        font-size: 12px;
-        color: var(--color-texto);
-    }
-
-    .texto-registro a {
-        color: var(--color-texto);
-        text-decoration: underline;
-        cursor: pointer;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantalla de Inicio de Sesión</title>
+    <style>
+        :root {
+            --color-fondo: #eeded2;
+            --color-cabecera: #b3cde0;
+            --color-input: #fff;
+            --color-borde: #000;
+            --color-texto: #000;
+            --color-boton-ingresar: #9c5b3d;
+            --color-boton-crear: #1a3b5d;
+            --color-texto-boton: #fff;
+            --padding-campos: 10px;
+            --tamano-input: 100%;
+            --ancho-boton: 80px;
+            --alto-boton: 40px;
+            --margen: 15px;
+        }
+ 
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: var(--color-fondo);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+ 
+        .contenedor {
+            width: 300px;
+            background-color: var(--color-fondo);
+            text-align: center;
+            box-sizing: border-box;
+        }
+ 
+        .cabecera {
+            background-color: var(--color-cabecera);
+            color: var(--color-texto);
+            padding: var(--padding-campos);
+            font-size: 18px;
+            border: 2px solid var(--color-borde);
+            border-radius: 10px;
+            margin-bottom: var(--margen);
+        }
+ 
+        label {
+            display: block;
+            color: var(--color-texto);
+            font-size: 14px;
+            margin-top: var(--margen);
+            margin-bottom: 5px;
+        }
+ 
+        input[type="text"],
+        input[type="password"] {
+            width: var(--tamano-input);
+            padding: var(--padding-campos);
+            border: 2px solid var(--color-borde);
+            border-radius: 20px;
+            background-color: var(--color-input);
+            box-sizing: border-box;
+        }
+ 
+        .boton {
+            width: var(--ancho-boton);
+            height: var(--alto-boton);
+            border: 2px solid var(--color-borde);
+            color: var(--color-texto-boton);
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: var(--margen);
+            border-radius: 10px;
+        }
+ 
+        .boton-ingresar {
+            background-color: var(--color-boton-ingresar);
+        }
+ 
+        .texto-registro {
+            margin-top: var(--margen);
+            font-size: 12px;
+            color: var(--color-texto);
+        }
+ 
+        .texto-registro a {
+            color: var(--color-texto);
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-
+ 
 <div class="contenedor">
     <div class="cabecera">Iniciar sesión</div>
-
-    <label for="correo">Correo:</label>
-    <input type="text" id="correo" name="correo">
-
-    <label for="contrasena">Contraseña:</label>
-    <input type="password" id="contrasena" name="contrasena">
-
-    <button class="boton boton-ingresar">Ingresar</button>
-
-    <div class="texto-registro">
-        ¿Aún no tienes una cuenta? crea una
+ 
+    <form action="/Login" method="post">
+        <label for="correo">Correo:</label>
+        <input type="text" id="correo" name="correo" required>
+ 
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" id="contrasena" name="contrasena" required>
+ 
+        <button type="submit" class="boton boton-ingresar">Ingresar</button>
+    </form>
+ 
+    <div class="texto-registro">    
+        ¿Aún no tienes una cuenta? <a href="Registrar.html">Crear una</a>
     </div>
-
-    <button class="boton boton-crear">Crear</button>
 </div>
-
+ 
 </body>
 </html>
+ 
