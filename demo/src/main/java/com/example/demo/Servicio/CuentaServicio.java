@@ -4,12 +4,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import org.springframework.stereotype.Service;
+
 
 //import org.hibernate.boot.model.relational.Database;
 
 import com.example.demo.DatabaseManager.DatabaseManager;
 import com.example.demo.Entidades.Usuario;
 
+@Service
 public class CuentaServicio {
 
     private final String EMAIL_PATTERN = "^[a-zA-Z0-9._%+-]+.edu\\.co$";

@@ -15,7 +15,7 @@ EXIT;
 
 TABLA USUARIOS 
 CREATE TABLE usuario(
-    usuario_id INT AUTO_INCREMENT PRIMARY KEY
+    usuario_id INT AUTO_INCREMENT PRIMARY KEY,
     correo VARCHAR (100) NOT NULL,
     nombre VARCHAR (100) NOT NULL,
     rol VARCHAR (100)
@@ -28,7 +28,8 @@ docker exec -it red-db \
 mysql -u root -p 
 
 inicar el contendor
-docker-compose up -dmvn clean install -DskipTests
+docker-compose up -d
+mvn clean install -DskipTests
 
 Parece que el cliente de MySQL no está instalado en tu entorno Gitpod. Puedes instalar el cliente de MySQL ejecutando el siguiente comando:
 

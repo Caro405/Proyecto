@@ -1,4 +1,3 @@
-
 services:
   db:
     image: mysql:8.0.31
@@ -9,7 +8,7 @@ services:
       - MYSQL_PASSWORD=secret
       - MYSQL_ROOT_PASSWORD=secret
     ports:
-      - '3306:3306'
+      - '3306:3306'  # Mapea el puerto 3306 para MySQL
     networks:
       - red-network
     healthcheck:
@@ -20,6 +19,8 @@ services:
 
   app:
     build: .
+    ports:
+      - '8080:8080'  # Mapea el puerto 8080 para la aplicación Spring Boot
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/red
       - SPRING_DATASOURCE_USERNAME=red
