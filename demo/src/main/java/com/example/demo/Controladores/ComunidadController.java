@@ -1,5 +1,6 @@
 package com.example.demo.Controladores;
 
+import org.springframework.stereotype.Controller;
 //import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,9 +12,15 @@ import com.example.demo.Servicio.ComunidadService;
 import java.util.List;
 */
 
-//@Controller
+@Controller
 @RequestMapping("/comunidades")
 public class ComunidadController {
+    
+    @GetMapping("/ComunidadA")
+    public String mostrarComunidadA() {
+        return "ComunidadA";
+    }
+
 /*
     @Autowired
     private ComunidadService comunidadService;
