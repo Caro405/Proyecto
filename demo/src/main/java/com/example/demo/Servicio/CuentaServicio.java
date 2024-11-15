@@ -13,14 +13,14 @@ import com.example.demo.Entidades.Usuario;
 public class CuentaServicio {
 
     private final String EMAIL_PATTERN = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$";
-    private final String PASSWORD_PATTERN = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[.#?!@$%^&*-]).{8,}$";
-
-    public boolean validarCorreo(String correo) {
-        return correo.matches(EMAIL_PATTERN);
-    }
+    private final String PASSWORD_PATTERN = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[!@#\\$%\\^&\\*\\-_]).{8,}$";
 
     public boolean validarContrasena(String contrasena) {
         return contrasena.matches(PASSWORD_PATTERN);
+    }
+
+    public boolean validarCorreo(String correo) {
+        return correo.matches(EMAIL_PATTERN);
     }
 
     public boolean hasEmptyFields(Usuario usuario) {
@@ -31,7 +31,7 @@ public class CuentaServicio {
     }
 
     public boolean crearUsuario(Usuario usuario) throws Exception {
-        String sql = "INSERT INTO Usuario (correo, nombre, contrasena, rol) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO usuario (correo, nombre, contrasena, rol) VALUES (?, ?, ?, ?)";
         
         try (Connection conexion = DatabaseManager.getConnection();
              PreparedStatement pre = conexion.prepareStatement(sql)) {
@@ -47,7 +47,8 @@ public class CuentaServicio {
 
             return rowsAffected > 0;
         } catch (SQLException e) {
-            throw new Exception("Error al intentar crear el usuario en la base de datos: " + e.getMessage(), e);
+            System.out.println("Error al intentar crear el usuario en la base de datos: " + e.getMessage());
+            throw new Exception("Error al intentar crear el usuario en la base de datos", e);
         }
     }
 
@@ -82,7 +83,7 @@ public class CuentaServicio {
     }
 
     public boolean login(String correo, String contrasena) {
-        String sql = "SELECT * FROM Usuario WHERE correo = ? AND contrasena = ?";
+        String sql = "SELECT * FROM usuario WHERE correo = ? AND contrasena = ?";
         
         try (Connection conexion = DatabaseManager.getConnection();
              PreparedStatement pre = conexion.prepareStatement(sql)) {
@@ -100,5 +101,17 @@ public class CuentaServicio {
             System.out.println("Error en el proceso de inicio de sesión: " + e.getMessage());
         }
         return false;
+    }
+
+    // Método adicional para verificar la conexión a la base de datos
+    public boolean verificarConexion() {
+        try (Connection conexion = DatabaseManager.getConnection()) {
+            boolean isConnected = conexion != null && !conexion.isClosed();
+            System.out.println("Conexión exitosa: " + isConnected);
+            return isConnected;
+        } catch (SQLException e) {
+            System.out.println("Error en la conexión: " + e.getMessage());
+            return false;
+        }
     }
 }

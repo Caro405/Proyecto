@@ -26,11 +26,12 @@ public class RegistroController {
     public String registroUsuario(
             @RequestParam String correo,
             @RequestParam String nombre,
-            @RequestParam String contrasena,
             @RequestParam String rol,
+            @RequestParam String contrasena,
+
             RedirectAttributes redirectAttributes) {
         try {
-            String rMensaje = cuentaServicio.crearUsuario(correo, nombre, rol, contrasena);
+            String rMensaje = cuentaServicio.crearUsuario(correo, nombre, contrasena, rol);
             System.out.println(rMensaje);
 
             redirectAttributes.addFlashAttribute("success", rMensaje);

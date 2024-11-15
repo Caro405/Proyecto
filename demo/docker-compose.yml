@@ -9,8 +9,10 @@ services:
       - MYSQL_ROOT_PASSWORD=secret
     ports:
       - '3306:3306'  # Mapea el puerto 3306 para MySQL
-    networks:
-      - red-network
+    expose:
+      - 3306  
+    #networks: 
+     # - red-network
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
