@@ -22,7 +22,7 @@ services:
   app:
     build: .
     ports:
-      - '8080:8080'  # Mapea el puerto 8080 para la aplicación Spring Boot
+      - '8090:8080'  # Mapea el puerto 8080 para la aplicación Spring Boot
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/red
       - SPRING_DATASOURCE_USERNAME=red
