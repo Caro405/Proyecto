@@ -1,6 +1,6 @@
 package com.example.demo.Entidades;
 
-//import java.util.Date;
+import java.util.Date;
 import jakarta.persistence.Entity;
 
 import jakarta.persistence.GeneratedValue;
@@ -13,10 +13,10 @@ public class Comunidad {
     @GeneratedValue
     private Long comunidadId;
     
-    /*
+
     private String nombre;
     private String descripcion;
     private Date fechaCreacion;
     private String categoria;
-    */
+   
 }

@@ -2,10 +2,12 @@ package com.example.demo.Controladores;
 
 import org.springframework.stereotype.Controller;
 //import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.*;
+import com.example.demo.Entidades.Comunidad;
 
 /*import com.example.demo.Entidades.Archivo;
-import com.example.demo.Entidades.Comunidad;
+
 import com.example.demo.Entidades.Usuario;
 import com.example.demo.Servicio.ComunidadService;
 
@@ -13,9 +15,15 @@ import java.util.List;
 */
 
 @Controller
-@RequestMapping("/comunidades")
+@RequestMapping("/ComunidadA")
 public class ComunidadController {
+
+    private Comunidad comunidad;
     
+        public void RegistroController(Comunidad comunidad) {
+            this.comunidad = comunidad;
+    }
+
     @GetMapping("/ComunidadA")
     public String mostrarComunidadA() {
         return "ComunidadA";
