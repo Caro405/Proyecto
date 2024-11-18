@@ -1,37 +1,47 @@
 package com.example.demo.Controladores;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 //import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.*;
 import com.example.demo.Entidades.Comunidad;
-
-/*import com.example.demo.Entidades.Archivo;
-
-import com.example.demo.Entidades.Usuario;
 import com.example.demo.Servicio.ComunidadService;
 
+import com.example.demo.Entidades.Archivo;
+
+import com.example.demo.Entidades.Usuario;
+
 import java.util.List;
-*/
+
 
 @Controller
 @RequestMapping("/ComunidadA")
 public class ComunidadController {
 
     private Comunidad comunidad;
+    @Autowired
+    private ComunidadService comunidadService;
+
     
         public void RegistroController(Comunidad comunidad) {
             this.comunidad = comunidad;
     }
 
-    @GetMapping("/ComunidadA")
+    @GetMapping("/")
     public String mostrarComunidadA() {
+        return "redirect:/ComunidadA";
+    }
+
+    @GetMapping("/")
+    public String mostrarComunidadA (@RequestParam(required = false) String param) {
         return "ComunidadA";
     }
 
+
+
+
 /*
-    @Autowired
-    private ComunidadService comunidadService;
 
     @GetMapping
     public List<Comunidad> obtenerComunidades() {
