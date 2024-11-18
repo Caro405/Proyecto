@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+nano .gitignore
+
+/demo/data/

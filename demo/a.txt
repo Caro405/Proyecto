@@ -3,7 +3,7 @@ demo/ejecutar-mysql.sh
 password secret
 
 CREAR TABLA
-docker exec -it red-db -ured -p
+docker exec -it red-db -u red -p
 USE red;
  CREATE TABLE...
 ver que la tabla se creo
@@ -26,7 +26,7 @@ docker start red-db
 docker ps
 
 docker exec -it red-db \
-mysql -u root -p 
+mysql -u root -p
 
 inicar el contendor
 docker-compose up -d

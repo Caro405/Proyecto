@@ -10,9 +10,15 @@ services:
     ports:
       - '3306:3306'  # Mapea el puerto 3306 para MySQL
     expose:
-      - 3306  
-    #networks: 
-     # - red-network
+      - 3306
+    volumes:
+      - $PWD/scripts:/scripts
+      - $PWD/scripts-contenedor:/docker-entrypoint-initdb.d
+      - $PWD/var/lib/mysql
+
+    networks:
+      - red-network
+
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
