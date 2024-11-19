@@ -20,6 +20,7 @@ import java.util.List;
 public class ComunidadController {
 
     private Comunidad comunidad;
+    
     @Autowired
     private ComunidadService comunidadService;
 

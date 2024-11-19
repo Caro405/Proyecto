@@ -1,0 +1,7 @@
+tasks:
+  - before: |
+        cd demo
+        sdk install java 23.0.1-zulu < /dev/null
+        mvn clean install -DskipTests
+        docker-compose up -d
+        docker start red-db

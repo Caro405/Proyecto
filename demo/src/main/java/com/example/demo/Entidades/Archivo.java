@@ -1,14 +1,12 @@
 package com.example.demo.Entidades;
 
-//import java.util.Date;
+import lombok.Data;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-
+@Data
 public class Archivo {
-    @Id
-    @GeneratedValue
+
     private Long archivoId;
+
 /*
     private String nombre;
     private String tipoDeSubida;
