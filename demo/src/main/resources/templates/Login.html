@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -92,13 +92,22 @@
             text-decoration: underline;
             cursor: pointer;
         }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-bottom: var(--margen);
+        }
     </style>
 </head>
 <body>
  
 <div class="contenedor">
     <div class="cabecera">Iniciar sesión</div>
- 
+
+    <!-- Mensaje de error si las credenciales son incorrectas -->
+    <div th:if="${error}" class="error" th:text="${error}"></div>
+
     <form action="/Login" method="post">
         <label for="correo">Correo:</label>
         <input type="text" id="correo" name="correo" required>
@@ -116,4 +125,3 @@
  
 </body>
 </html>
- 

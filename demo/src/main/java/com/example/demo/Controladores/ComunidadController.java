@@ -16,7 +16,7 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping("/ComunidadA")
+@RequestMapping("/PantallaInicio")
 public class ComunidadController {
 
     private Comunidad comunidad;
@@ -28,14 +28,14 @@ public class ComunidadController {
             this.comunidad = comunidad;
     }
 
-    @GetMapping("/")
+    @GetMapping("/PantallaInicio")
     public String mostrarComunidadA() {
-        return "redirect:/ComunidadA";
+        return "redirect:/PantallaInicio";
     }
 
     @GetMapping("/")
     public String mostrarComunidadA (@RequestParam(required = false) String param) {
-        return "ComunidadA";
+        return "PantallaInicio";
     }
 
 

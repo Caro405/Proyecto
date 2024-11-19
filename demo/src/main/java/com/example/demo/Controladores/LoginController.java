@@ -20,6 +20,11 @@ public class LoginController {
     public String redirigirLogin() {
         return "redirect:/Login";
     }
+    @GetMapping("/PantallaInicio")
+public String mostrarComunidadA() {
+    return "PantallaInicio";
+}
+
 
     @GetMapping("/Login")
     public String showLoginPage(@RequestParam(required = false) String param) {
