@@ -9,10 +9,11 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 //import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
+
 import com.example.demo.DatabaseManager.DatabaseManager;
 import com.example.demo.Entidades.Comunidad;
 
@@ -35,7 +36,7 @@ public class ComunidadService {
             // Establece los parámetros en el orden correcto
             pre.setString(1, comunidad.getNombre());
             pre.setString(2, comunidad.getDescripcion());
-            pre.setDate(3, (Date) comunidad.getFechaCreacion());
+            pre.setDate(3, (java.sql.Date) comunidad.getFechaCreacion());
             pre.setString(4, comunidad.getCategoria());
 
             int rowsAffected = pre.executeUpdate();

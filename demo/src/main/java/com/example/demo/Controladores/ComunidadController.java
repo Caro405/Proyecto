@@ -16,6 +16,7 @@ import com.example.demo.Entidades.Usuario;
 
 import java.lang.ProcessBuilder.Redirect;
 import java.util.Date;
+
 import java.util.List;
 
 
@@ -58,7 +59,7 @@ public class ComunidadController {
             }
         }
 
-        
+
 /*
 
     @GetMapping
