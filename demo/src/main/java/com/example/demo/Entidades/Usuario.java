@@ -6,7 +6,6 @@ import lombok.Data;
 public class Usuario {
 
     Long id_usuario;
-
     String nombre;
     String correo;
     String rol;

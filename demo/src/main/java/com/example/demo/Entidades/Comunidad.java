@@ -7,13 +7,11 @@ import lombok.Data;
 @Data
 public class Comunidad {
 
-    private Long comunidadId;
+    Long comunidadId;
     
-    private String nombre;
-    private String descripcion;
+    String nombre;
+    String descripcion;
+    Date fechaCreacion;
+    String categoria;
 
-    private Date fechaCreacion;
-    
-    private String categoria;
-   
 }

@@ -13,7 +13,7 @@ DESCRIBE usuario;
 salir
 EXIT;
 
-TABLA USUARIOS 
+TABLA USUARIOS
 CREATE TABLE usuario(
     id_usuario INT AUTO_INCREMENT PRIMARY KEY,
     contrasena VARCHAR(255) NOT NULL,
@@ -44,6 +44,12 @@ git add .
 git commit -m "Descripción de los cambios realizados" 
 git push origin main
 
+para la rama dev
+git checkout dev
+git status
+git add .
+git commit -m "Descripción de los cambios realizados" 
+git push origin dev
 
 Para empezar el programa
 cd demo

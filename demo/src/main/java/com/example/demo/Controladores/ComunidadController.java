@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 //import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import com.example.demo.Entidades.Comunidad;
 import com.example.demo.Servicio.ComunidadService;
 
@@ -12,6 +14,8 @@ import com.example.demo.Entidades.Archivo;
 
 import com.example.demo.Entidades.Usuario;
 
+import java.lang.ProcessBuilder.Redirect;
+import java.util.Date;
 import java.util.List;
 
 
@@ -19,29 +23,42 @@ import java.util.List;
 @RequestMapping("/PantallaInicio")
 public class ComunidadController {
 
-    private Comunidad comunidad;
-    
-    @Autowired
+    //Para crear comunidad
     private ComunidadService comunidadService;
 
+    public void ComunidadController (ComunidadService comunidadService) {
+            this.comunidadService = comunidadService;
+    }
+
+    @GetMapping("/CrearComunidad")
+    public String mostrarCrearComunidad() {
+        return "CrearComunidad";
+    }
+
+    @PostMapping("/CrearComunidad")
+    public String crearComunidad (@RequestParam String nombre,
+            @RequestParam String descripcion,
+            @RequestParam Date fechaCreacion,
+            @RequestParam String categoria,
+            
+            RedirectAttributes redirectAttributes){
+        try{
+                String rMensaje = comunidadService.crearComunidad(nombre, descripcion, fechaCreacion, categoria);
+                System.out.println(rMensaje);
     
-        public void RegistroController(Comunidad comunidad) {
-            this.comunidad = comunidad;
-    }
+                redirectAttributes.addFlashAttribute("success", rMensaje);
+    
+                return "redirect:/Comunidad";
 
-    @GetMapping("/PantallaInicio")
-    public String mostrarComunidadA() {
-        return "redirect:/PantallaInicio";
-    }
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+                e.printStackTrace();
+                redirectAttributes.addFlashAttribute("error", e.getMessage());
+            return "redirect:/CrearComunidad";
+            }
+        }
 
-    @GetMapping("/")
-    public String mostrarComunidadA (@RequestParam(required = false) String param) {
-        return "PantallaInicio";
-    }
-
-
-
-
+        
 /*
 
     @GetMapping
@@ -75,4 +92,5 @@ public class ComunidadController {
         comunidadService.publicarArchivo(id, archivo);
     }
         */
+
 }

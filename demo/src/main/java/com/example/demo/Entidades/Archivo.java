@@ -8,10 +8,10 @@ public class Archivo {
     private Long archivoId;
 
 /*
-    private String nombre;
-    private String tipoDeSubida;
-    private int tamano;
-    private Date fechaSubida;
+    String nombre;
+    String tipoDeSubida;
+    int tamano;
+    Date fechaSubida;
 */
 
     // Constructor vacío
