@@ -1,133 +1,163 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pantalla de Comunidad</title>
-<style>
-    :root {
-        --color-fondo: #eeded2;
-        --color-botones: #9c5b3d;
-        --color-borde: #000;
-        --color-icono: #d1d1d1;
-        --color-texto-botones: #fff;
-        --tamano-icono: 40px;
-        --espacio-botones: 20px;
-        --padding-botones: 20px;
-        --color-menu: #ffffff;
-        --color-menu-borde: #000;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantalla de Comunidad</title>
+    <style>
+        :root {
+            --color-fondo: #f0f2f5;
+            --color-cabecera: #4267B2;
+            --color-input: #fff;
+            --color-borde: #ccc;
+            --color-texto: #000;
+            --color-boton-crear: #1a3b5d;
+            --color-texto-boton: #fff;
+            --padding-campos: 10px;
+            --tamano-input: 100%;
+            --ancho-boton: 100%;
+            --alto-boton: 40px;
+            --margen: 15px;
+            --espacio-campos: 10px;
+            --color-menu: #ffffff;
+            --color-menu-borde: #000;
+            --color-logo: #fff;
+            --color-boton-hover: #355c8f;
+            --color-menu-hover: #e0e0e0;
+        }
 
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background-color: var(--color-fondo);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
-    
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: var(--color-fondo);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            padding-top: 60px; /* Espacio para la navbar */
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: var(--color-cabecera);
+            padding: 15px;
+            color: var(--color-logo);
+            text-align: center;
+            font-size: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
         .contenedor {
-        width: 300px;
-        background-color: var(--color-fondo);
-        text-align: center;
-        box-sizing: border-box;
-        position: relative;
-        padding-top: 60px;
-    }
+            width: 300px;
+            background-color: var(--color-fondo);
+            text-align: center;
+            box-sizing: border-box;
+            position: relative;
+            padding-top: 60px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
 
+        .menu-icono {
+            width: 40px;
+            height: 40px;
+            background-color: var(--color-cabecera);
+            color: var(--color-logo);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            cursor: pointer;
+            border: 2px solid var(--color-borde);
+            font-size: 20px;
+        }
 
-    .menu-icono {
-        width: var(--tamano-icono);
-        height: var(--tamano-icono);
-        background-color: var(--color-icono);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 5px;
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        cursor: pointer;
-        border: 2px solid var(--color-borde);
-    }
+        .menu-desplegable {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 10px;
+            background-color: var(--color-menu);
+            border: 2px solid var(--color-menu-borde);
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 150px;
+            z-index: 1000;
+        }
 
-    .menu-desplegable {
-        display: none;
-        position: absolute;
-        top: 50px;
-        left: 10px;
-        background-color: var(--color-menu);
-        border: 2px solid var(--color-menu-borde);
-        border-radius: 5px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        width: 150px;
-        z-index: 1000;
-    }
+        .menu-desplegable a {
+            display: block;
+            padding: 10px;
+            color: var(--color-borde);
+            text-decoration: none;
+            font-size: 14px;
+        }
 
-    .menu-desplegable a {
-        display: block;
-        padding: 10px;
-        color: var(--color-borde);
-        text-decoration: none;
-        font-size: 14px;
-    }
+        .menu-desplegable a:hover {
+            background-color: var(--color-menu-hover);
+        }
 
-    .menu-desplegable a:hover {
-        background-color: #e0e0e0;
-    }
+        .boton {
+            background-color: var(--color-boton-crear);
+            border: 2px solid var(--color-borde);
+            color: var(--color-texto-boton);
+            text-align: center;
+            padding: 12px;
+            margin-top: 15px;
+            cursor: pointer;
+            width: var(--ancho-boton);
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
 
-    .boton {
-        background-color: var(--color-botones);
-        border: 2px solid var(--color-borde);
-        color: var(--color-texto-botones);
-        text-align: center;
-        padding: var(--padding-botones);
-        margin-top: var(--espacio-botones);
-        cursor: pointer;
-        width: 100%;
-        font-size: 16px;
-        border-radius: 5px;
-    }
+        .boton:hover {
+            background-color: var(--color-boton-hover);
+        }
 
-    .boton:first-of-type {
-        margin-top: 0;
-    }
-</style>
+        .boton:first-of-type {
+            margin-top: 0;
+        }
+    </style>
 </head>
 <body>
+    <div class="navbar">Jave Social - Comunidad</div>
+    <div class="contenedor">
+        <div class="menu-icono" onclick="toggleMenu()">☰</div>
+        <div class="menu-desplegable" id="menu">
+            <a href="#">Perfil</a>
+            <a href="#">Tus comunidades</a>
+            <a href="#">Explorar</a>
+        </div>
 
-<div class="contenedor">
-    <div class="menu-icono" onclick="toggleMenu()">☰</div>
-    <div class="menu-desplegable" id="menu">
-        <a href="#">Perfil</a>
-        <a href="#">Tus comunidades</a>
-        <a href="#">Explorar</a>
+        <button class="boton">Explorar comunidad</button>
+        <button class="boton">Crear comunidad</button>
     </div>
 
-    <button class="boton">Explorar comunidad</button>
-    <button class="boton">Crear comunidad</button>
-</div>
-
-<script>
-    function toggleMenu() {
-        var menu = document.getElementById("menu");
-        if (menu.style.display === "none" || menu.style.display === "") {
-            menu.style.display = "block";
-        } else {
-            menu.style.display = "none";
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("menu");
+            if (menu.style.display === "none" || menu.style.display === "") {
+                menu.style.display = "block";
+            } else {
+                menu.style.display = "none";
+            }
         }
-    }
 
-    // Cierra el menú si se hace clic fuera de él
-    window.onclick = function(event) {
-        var menu = document.getElementById("menu");
-        if (!event.target.matches('.menu-icono')) {
-            menu.style.display = "none";
+        // Cierra el menú si se hace clic fuera de él
+        window.onclick = function(event) {
+            var menu = document.getElementById("menu");
+            if (!event.target.matches('.menu-icono')) {
+                menu.style.display = "none";
+            }
         }
-    }
-</script>
-
+    </script>
 </body>
 </html>
