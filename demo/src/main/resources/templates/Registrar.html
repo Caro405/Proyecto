@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pantalla de Crear Cuenta</title>
     <style>
         :root {
-            --color-fondo: #eeded2;
-            --color-cabecera: #b3cde0;
+            --color-fondo: #f0f2f5;
+            --color-cabecera: #4267B2;
             --color-input: #fff;
-            --color-borde: #000;
+            --color-borde: #ccc;
             --color-texto: #000;
             --color-boton-aceptar: #1a3b5d;
             --color-texto-boton: #fff;
             --padding-campos: 10px;
             --tamano-input: 100%;
-            --ancho-boton: 100px;
+            --ancho-boton: 100%;
             --alto-boton: 40px;
             --margen: 15px;
+            --color-logo: #fff;
+            --color-sidebar: #e9ebee;
+            --color-footer: #f0f0f0;
         }
 
         body {
@@ -25,24 +29,34 @@
             font-family: Arial, sans-serif;
             background-color: var(--color-fondo);
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            height: 100vh;
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: var(--color-cabecera);
+            padding: 10px;
+            color: var(--color-logo);
+            text-align: center;
+            font-size: 20px;
         }
 
         .contenedor {
-            width: 300px;
+            width: 350px;
             background-color: var(--color-fondo);
             text-align: center;
-            box-sizing: border-box;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
         }
 
         .cabecera {
             background-color: var(--color-cabecera);
-            color: var(--color-texto);
+            color: var(--color-logo);
             padding: var(--padding-campos);
-            font-size: 18px;
-            border: 2px solid var(--color-borde);
+            font-size: 24px;
             border-radius: 10px;
             margin-bottom: var(--margen);
         }
@@ -69,37 +83,120 @@
         .boton {
             width: var(--ancho-boton);
             height: var(--alto-boton);
-            border: 2px solid var(--color-borde);
+            border: none;
             color: var(--color-texto-boton);
             font-size: 14px;
             cursor: pointer;
             margin-top: var(--margen);
             border-radius: 10px;
             background-color: var(--color-boton-aceptar);
+            transition: background-color 0.3s;
+        }
+
+        .boton:hover {
+            background-color: #1a5b8d;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: var(--color-sidebar);
+            padding: 15px;
+            margin-left: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .sidebar h3 {
+            font-size: 18px;
+            color: var(--color-texto);
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            background-color: var(--color-footer);
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            position: relative;
+            bottom: 0;
+            margin-top: 20px;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .social-button {
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: #4267B2;
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .social-button:hover {
+            background-color: #365899;
         }
     </style>
 </head>
+
 <body>
 
-<div class="contenedor">
-    <div class="cabecera">Crear cuenta</div>
-    <!-- Agregar el formulario con la ruta y el método correctos -->
-    <form action="/Registrar" method="post">
-        <label for="correo">Correo:</label>
-        <input type="email" id="correo" name="correo" required>
+    <div class="navbar">Jave Social - Bienvenidos</div>
 
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
+    <div style="display: flex; justify-content: center; width: 100%;">
+        <div class="contenedor">
+            <div class="cabecera">Crear cuenta</div>
+            
+            <form action="/Registrar" method="post">
+                <label for="correo">Correo:</label>
+                <input type="email" id="correo" name="correo" required>
 
-        <label for="rol">Rol:</label>
-        <input type="text" id="rol" name="rol" required>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
 
-        <label for="contrasena">Contraseña:</label>
-        <input type="password" id="contrasena" name="contrasena" required>
+                <label for="rol">Rol:</label>
+                <input type="text" id="rol" name="rol" required>
 
-        <button type="submit" class="boton">Aceptar</button>
-    </form>
-</div>
+                <label for="contrasena">Contraseña:</label>
+                <input type="password" id="contrasena" name="contrasena" required>
+
+                <button type="submit" class="boton">Aceptar</button>
+            </form>
+
+            <div class="footer">
+                <p>O regístrate con:</p>
+                <div class="social-buttons">
+                    <a href="#" class="social-button">Campus Virtual</a>
+                    <a href="#" class="social-button">Outlook</a>
+                </div>
+                <p>Al crear una cuenta, aceptas nuestras <a href="#">condiciones de servicio</a>.</p>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <h3>Tendencias</h3>
+            <p><a href="#">#SQL</a></p>
+            <p><a href="#">#SpringBoot</a></p>
+            <p><a href="#">#HTML</a></p>
+            <p><a href="#">#Maven</a></p>
+            <p><a href="#">#Fiesta</a></p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer">
+            <p>&copy; 2024 Jave Social. Todos los derechos reservados.</p>
+            <p><a href="#">Política de privacidad</a> | <a href="#">Ayuda</a></p>
+        </div>
+    </footer>
 
 </body>
+
 </html>
