@@ -17,7 +17,7 @@ CREATE TABLE usuario (
     rol VARCHAR (100)
 );
 
-CREATE TABLE comunidad (
+CREATE TABLE Comunidad (
     id_comunidad INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR (100) NOT NULL,
     descripcion VARCHAR (300) NOT NULL,

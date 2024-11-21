@@ -7,7 +7,7 @@
 <style>
     :root {
         --color-fondo: #eeded2;
-        --color-cabecera: b3cde0#;
+        --color-cabecera: #b3cde0;
         --color-input: #fff;
         --color-borde: #000;
         --color-texto: #000;
@@ -135,16 +135,19 @@
 
     <div class="cabecera">Crear comunidad</div>
 
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre">
+    <!-- Formulario para crear comunidad -->
+    <form action="/PantallaInicio/CrearComunidad" method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
 
-    <label for="descripcion">Descripción:</label>
-    <input type="text" id="descripcion" name="descripcion">
+        <label for="descripcion">Descripción:</label>
+        <input type="text" id="descripcion" name="descripcion" required>
 
-    <label for="categoria">Categoria:</label>
-    <input type="text" id="categoria" name="categoria">
+        <label for="categoria">Categoría:</label>
+        <input type="text" id="categoria" name="categoria" required>
 
-    <button class="boton">Crear</button>
+        <button type="submit" class="boton">Crear</button>
+    </form>
 </div>
 
 <script>
