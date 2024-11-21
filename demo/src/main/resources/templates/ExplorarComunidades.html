@@ -61,7 +61,7 @@
         <p th:text="${comunidad.descripcion}">Descripción</p>
         <p>Categoría: <span th:text="${comunidad.categoria}">Categoría</span></p>
         <p>Creada el: <span th:text="${#dates.format(comunidad.fechaCreacion, 'dd/MM/yyyy')}">Fecha</span></p>
-        <a th:href="@{'/PantallaInicio/Comunidad/' + ${comunidad.comunidadId}}">Ver Detalles</a>
+        <a th:href="@{'/PantallaInicio/Comunidad/' + ${comunidad.id_comunidad}}">Ver Detalles</a>
     </div>
 </body>
 </html>
