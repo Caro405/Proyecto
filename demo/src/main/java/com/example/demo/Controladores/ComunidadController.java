@@ -1,23 +1,19 @@
 package com.example.demo.Controladores;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 //import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.example.demo.Entidades.Comunidad;
+
 import com.example.demo.Servicio.ComunidadService;
 
-import com.example.demo.Entidades.Archivo;
-
-import com.example.demo.Entidades.Usuario;
 
 import java.lang.ProcessBuilder.Redirect;
 import java.util.Date;
 
-import java.util.List;
+//import java.util.List;
 
 
 @Controller
