@@ -24,14 +24,15 @@ public class CuentaServicio {
     }
 
     public boolean hasEmptyFields(Usuario usuario) {
-        return (usuario.getCorreo() == null || usuario.getCorreo().isEmpty() || 
+        return (usuario.getCorreo() == null || usuario.getCorreo().isEmpty() ||
                 usuario.getNombre() == null || usuario.getNombre().isEmpty() ||
-                usuario.getRol() == null || usuario.getRol().isEmpty() ||
-                usuario.getContrasena() == null || usuario.getContrasena().isEmpty());
+                usuario.getContrasena() == null || usuario.getContrasena().isEmpty() ||
+                usuario.getRol() == null || usuario.getRol().isEmpty()
+        );
     }
 
     public boolean crearUsuario(Usuario usuario) throws Exception {
-        String sql = "INSERT INTO usuario (correo, nombre, contrasena, rol) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO usuario (correo, nombre, rol, contrasena) VALUES (?, ?, ?, ?)";
         
         try (Connection conexion = DatabaseManager.getConnection();
              PreparedStatement pre = conexion.prepareStatement(sql)) {
@@ -39,8 +40,8 @@ public class CuentaServicio {
             // Establece los parámetros en el orden correcto
             pre.setString(1, usuario.getCorreo());
             pre.setString(2, usuario.getNombre());
-            pre.setString(3, usuario.getContrasena());
-            pre.setString(4, usuario.getRol());
+            pre.setString(3, usuario.getRol());
+            pre.setString(4, usuario.getContrasena());
 
             int rowsAffected = pre.executeUpdate();
             System.out.println("Filas afectadas: " + rowsAffected);
