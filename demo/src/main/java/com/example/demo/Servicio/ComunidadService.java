@@ -23,7 +23,6 @@ public class ComunidadService {
     public boolean hasEmptyFields(Comunidad comunidad) {
         return (comunidad.getNombre() == null || comunidad.getNombre().isEmpty() ||
         comunidad.getDescripcion() == null || comunidad.getDescripcion().isEmpty() ||
-        comunidad.getFechaCreacion() == null ||
         comunidad.getCategoria() == null ||  comunidad.getCategoria().isEmpty());
     }
 
@@ -36,7 +35,7 @@ public class ComunidadService {
             // Establece los parámetros en el orden correcto
             pre.setString(1, comunidad.getNombre());
             pre.setString(2, comunidad.getDescripcion());
-            pre.setDate(3, (java.sql.Date) comunidad.getFechaCreacion());
+            pre.setDate(3, new java.sql.Date(comunidad.getFechaCreacion().getTime()));
             pre.setString(4, comunidad.getCategoria());
 
             int rowsAffected = pre.executeUpdate();
@@ -52,7 +51,7 @@ public class ComunidadService {
     public String crearComunidad (String nombre, String descripcion, Date fechaCreacion, String categoria) throws Exception {
         Comunidad comunidad = new Comunidad();
         comunidad.setNombre(nombre);
-        comunidad.setDescripcion(descripcion);
+        comunidad.setFechaCreacion(new Date());
         comunidad.setFechaCreacion(fechaCreacion);
         comunidad.setCategoria(categoria);
 
