@@ -10,7 +10,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.example.demo.Servicio.ComunidadService;
 
 
-import java.lang.ProcessBuilder.Redirect;
+//import java.lang.ProcessBuilder.Redirect;
 import java.util.Date;
 
 //import java.util.List;
@@ -23,7 +23,7 @@ public class ComunidadController {
     //Para crear comunidad
     private ComunidadService comunidadService;
 
-    public void ComunidadController (ComunidadService comunidadService) {
+    public ComunidadController (ComunidadService comunidadService) {
             this.comunidadService = comunidadService;
     }
 

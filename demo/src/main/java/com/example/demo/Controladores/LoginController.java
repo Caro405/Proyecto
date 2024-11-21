@@ -21,7 +21,7 @@ public class LoginController {
         return "redirect:/Login";
     }
     @GetMapping("/PantallaInicio")
-public String mostrarComunidadA() {
+public String mostrarPantallaInicio() {
     return "PantallaInicio";
 }
 
@@ -37,7 +37,7 @@ public String mostrarComunidadA() {
                         RedirectAttributes redirectAttributes) {
         boolean okLoginp = cuentaServicio.login(correo, contrasena);
         if (okLoginp) {
-            return "redirect:/ComunidadA";
+            return "redirect:/PantallaInicio";
         } else {
             redirectAttributes.addFlashAttribute("error", "usuario o contraseña incorrectos");
             return "redirect:/Login";

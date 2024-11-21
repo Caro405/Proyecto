@@ -13,7 +13,7 @@
         --color-texto-botones: #fff;
         --tamano-icono: 40px;
         --espacio-botones: 20px;
-        --padding-botones: 20px;
+        --padding-botones: 15px;
         --color-menu: #ffffff;
         --color-menu-borde: #000;
     }
@@ -27,8 +27,8 @@
         align-items: center;
         height: 100vh;
     }
-    
-        .contenedor {
+
+    .contenedor {
         width: 300px;
         background-color: var(--color-fondo);
         text-align: center;
@@ -36,7 +36,6 @@
         position: relative;
         padding-top: 60px;
     }
-
 
     .menu-icono {
         width: var(--tamano-icono);
@@ -84,7 +83,7 @@
         color: var(--color-texto-botones);
         text-align: center;
         padding: var(--padding-botones);
-        margin-top: var(--espacio-botones);
+        margin: var(--espacio-botones) 0;
         cursor: pointer;
         width: 100%;
         font-size: 16px;
@@ -107,8 +106,8 @@
     </div>
 
     <button class="boton">Explorar comunidad</button>
-    <button class="boton">Crear comunidad</button>
-</div>
+    
+    <a href="CrearComunidad.html" class="boton">Crear comunidad</a></div>
 
 <script>
     function toggleMenu() {

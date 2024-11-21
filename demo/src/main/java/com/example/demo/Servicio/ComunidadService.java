@@ -56,6 +56,10 @@ public class ComunidadService {
         comunidad.setFechaCreacion(fechaCreacion);
         comunidad.setCategoria(categoria);
 
+        if (hasEmptyFields(comunidad)) {
+            throw new Exception("Complete todos los campos.");
+        }
+
         try {
             if (crearComunidad(comunidad)) {
                 return "Comunidad creada correctamente.";
