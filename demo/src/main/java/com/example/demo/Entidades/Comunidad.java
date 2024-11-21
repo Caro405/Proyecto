@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class Comunidad {
 
-    Long comunidadId;
+    Long id_comunidad;
     
     String nombre;
     String descripcion;

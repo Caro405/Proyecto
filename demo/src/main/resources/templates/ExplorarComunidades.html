@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorar Comunidades</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8ebe1;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .comunidad {
+            background-color: #fff4ed;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .comunidad h2 {
+            margin: 0 0 10px;
+            font-size: 1.2em;
+            color: #d35400;
+        }
+
+        .comunidad p {
+            margin: 5px 0;
+            font-size: 1em;
+            color: #333;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Explorar Comunidades</h1>
+
+    <!-- Lista de comunidades -->
+    <div th:each="comunidad : ${comunidades}" class="comunidad">
+        <h2 th:text="${comunidad.nombre}">Nombre de la Comunidad</h2>
+        <p th:text="${comunidad.descripcion}">Descripción</p>
+        <p>Categoría: <span th:text="${comunidad.categoria}">Categoría</span></p>
+        <p>Creada el: <span th:text="${#dates.format(comunidad.fechaCreacion, 'dd/MM/yyyy')}">Fecha</span></p>
+        <a th:href="@{'/PantallaInicio/Comunidad/' + ${comunidad.comunidadId}}">Ver Detalles</a>
+    </div>
+</body>
+</html>

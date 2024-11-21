@@ -79,16 +79,17 @@
     </style>
 </head>
 <body>
-    <a href="BancoDeParciales" class="btn-top">Banco de Parciales</a>
+    <a href="/PantallaInicio/BancoDeArchivos" class="btn-top">Banco de Archivos</a>
     <div class="contenedor">
-        <h1 class="titulo">Nombre de la Comunidad</h1>
-        <p>Esta es una descripción breve de la comunidad. Aquí puedes agregar más información sobre el propósito y las actividades de la comunidad.</p>
+        <h1 class="titulo" th:text="${comunidad.nombre}">Nombre de la Comunidad</h1>
+        <p th:text="${comunidad.descripcion}">
+            Esta es una descripción breve de la comunidad.
+        </p>
         <ul>
-            <li>Publicación 1</li>
-            <li>Publicación 2</li>
-            <li>Publicación 3</li>
+            <li>Categoría: <span th:text="${comunidad.categoria}">Categoría</span></li>
+            <li>Creada el: <span th:text="${#dates.format(comunidad.fechaCreacion, 'dd/MM/yyyy')}">Fecha</span></li>
         </ul>
-        <a href="NuevaPublicacion" class="btn">Nueva Publicación</a>
+        <a href="/PantallaInicio/NuevaPublicacion" class="btn">Nueva Publicación</a>
     </div>
 </body>
 </html>

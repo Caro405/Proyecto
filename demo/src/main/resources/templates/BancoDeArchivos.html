@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banco de Parciales</title>
+    <title>Banco de Archivos</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -96,23 +96,20 @@
     </style>
 </head>
 <body>
-    <div class="titulo">Banco de Parciales</div>
+    <div class="titulo">Banco de Archivos</div>
 
-    <div class="archivo">
-        <span>Archivo 1</span>
-        <a href="ruta-del-archivo-1.pdf" download>⬇</a>
+    <!-- Mostrar la lista de archivos -->
+    <div th:each="archivo : ${archivos}" class="archivo">
+        <span th:text="${archivo}">Nombre del archivo</span>
+        <a th:href="@{'/uploads/' + ${archivo}}" download>⬇</a>
     </div>
 
-    <div class="archivo">
-        <span>Archivo 2</span>
-        <a href="ruta-del-archivo-2.pdf" download>⬇</a>
-    </div>
+    <!-- Formulario para subir archivos -->
+    <form action="/BancoDeArchivos/subir" method="POST" enctype="multipart/form-data" class="selector">
+        <input type="file" name="archivo" class="input-archivo">
+        <button type="submit" class="btn aceptar">Subir Archivo</button>
+    </form>
 
-    <div class="selector">
-        <input type="file" class="input-archivo">
-        <button class="btn aceptar">Aceptar</button>
-    </div>
-
-    <a href="Comunidad.html" class="btn cancelar">Cancelar</a>
+    <a href="/PantallaInicio" class="btn cancelar">Volver</a>
 </body>
 </html>

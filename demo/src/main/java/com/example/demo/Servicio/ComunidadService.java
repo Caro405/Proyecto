@@ -1,10 +1,13 @@
 package com.example.demo.Servicio;
 
 import org.springframework.stereotype.Service;
+
 import java.sql.Connection;
-import java.sql.PreparedStatement;
+import java.sql.*;
 import java.sql.SQLException;
-import java.util.Date;
+import java.util.ArrayList;
+//import java.util.Date;
+import java.util.List;
 
 import com.example.demo.DatabaseManager.DatabaseManager;
 import com.example.demo.Entidades.Comunidad;
@@ -18,9 +21,56 @@ public class ComunidadService {
                 comunidad.getCategoria() == null || comunidad.getCategoria().isEmpty());
     }
 
-    public boolean crearComunidad(Comunidad comunidad) throws Exception {
-        String sql = "INSERT INTO Comunidad (nombre, descripcion, fechaCreacion, categoria) VALUES (?, ?, ?, ?)";
 
+      public Comunidad crearComunidad(Comunidad comunidad) throws Exception {
+    String sql = "INSERT INTO Comunidad (nombre, descripcion, fechaCreacion, categoria) VALUES (?, ?, ?, ?)";
+
+    try (Connection conexion = DatabaseManager.getConnection();
+         PreparedStatement pre = conexion.prepareStatement(sql)) {
+
+        pre.setString(1, comunidad.getNombre());
+        pre.setString(2, comunidad.getDescripcion());
+        pre.setDate(3, new java.sql.Date(comunidad.getFechaCreacion().getTime()));
+        pre.setString(4, comunidad.getCategoria());
+
+        int rowsAffected = pre.executeUpdate();
+        if (rowsAffected == 0) {
+            throw new Exception("No se pudo crear la comunidad.");
+        }
+        return comunidad;
+    } catch (SQLException e) {
+        throw new Exception("Error al intentar crear la comunidad en la base de datos.", e);
+    }
+}
+
+
+//obtener comunidades
+public List<Comunidad> obtenerTodas() {
+    List<Comunidad> comunidades = new ArrayList<>();
+    String sql = "SELECT * FROM Comunidad";
+
+    try (Connection conexion = DatabaseManager.getConnection();
+        Statement stmt = conexion.createStatement();
+        ResultSet rs = stmt.executeQuery(sql)) {
+
+        while (rs.next()) {
+            Comunidad comunidad = new Comunidad();
+            comunidad.setId_comunidad(rs.getLong("id_comunidad"));
+            comunidad.setNombre(rs.getString("nombre"));
+            comunidad.setDescripcion(rs.getString("descripcion"));
+            comunidad.setFechaCreacion(rs.getDate("fechaCreacion"));
+            comunidad.setCategoria(rs.getString("categoria"));
+
+            comunidades.add(comunidad);
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+    return comunidades;
+}
+
+        /*
         try (Connection conexion = DatabaseManager.getConnection();
              PreparedStatement pre = conexion.prepareStatement(sql)) {
 
@@ -62,7 +112,7 @@ public class ComunidadService {
         }
     }
 
-    // Método adicional para verificar la conexión a la base de datos
+        // Método adicional para verificar la conexión a la base de datos
     public boolean verificarConexion() {
         try (Connection conexion = DatabaseManager.getConnection()) {
             boolean isConnected = conexion != null && !conexion.isClosed();
@@ -73,4 +123,7 @@ public class ComunidadService {
             return false;
         }
     }
+*/
+
+
 }
