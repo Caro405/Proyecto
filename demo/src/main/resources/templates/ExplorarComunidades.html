@@ -50,10 +50,31 @@
         a:hover {
             background-color: #2980b9;
         }
+
+        .volver {
+            display: inline-block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #bdc3c7;
+            color: black;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .volver:hover {
+            background-color: #95a5a6;
+        }
     </style>
 </head>
 <body>
     <h1>Explorar Comunidades</h1>
+    
+    <!-- Botón volver -->
+    <a href="/PantallaInicio" class="volver">Volver</a>
 
     <!-- Lista de comunidades -->
     <div th:each="comunidad : ${comunidades}" class="comunidad">
@@ -63,5 +84,7 @@
         <p>Creada el: <span th:text="${#dates.format(comunidad.fechaCreacion, 'dd/MM/yyyy')}">Fecha</span></p>
         <a th:href="@{'/PantallaInicio/Comunidad/' + ${comunidad.id_comunidad}}">Ver Detalles</a>
     </div>
+
+    
 </body>
 </html>
