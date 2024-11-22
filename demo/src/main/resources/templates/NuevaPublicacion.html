@@ -94,9 +94,13 @@
 <body>
     <div class="contenedor">
         <h1>Nueva Publicación</h1>
+<<<<<<< HEAD
         <form th:action="@{/Publicacion/Crear}" method="POST">
             <!-- Campo oculto para pasar el ID de la comunidad -->
             <input type="hidden" name="idComunidad" th:value="${idComunidad}">
+=======
+        <form action="/crearPublicacion" method="POST">
+>>>>>>> 56c3eb0 (Pantallas y botones)
             <div class="form-group">
                 <label for="titulo">Título</label>
                 <input type="text" id="titulo" name="titulo" placeholder="Escribe el título de tu publicación" required>
@@ -107,9 +111,13 @@
             </div>
             <div class="botones">
                 <button type="submit" class="btn crear">Crear</button>
+<<<<<<< HEAD
                 
                 <!-- Botón dinámico para volver a la página anterior -->
                 <a th:href="@{/PantallaInicio/Comunidad/{idComunidad}(idComunidad=${idComunidad})}" class="btn volver">Volver</a>
+=======
+                <a href="/PantallaInicio" class="btn volver">Volver</a>
+>>>>>>> 56c3eb0 (Pantallas y botones)
             </div>
         </form>
     </div>
