@@ -70,48 +70,35 @@ public List<Comunidad> obtenerTodas() {
     return comunidades;
 }
 
+//Buscar una comunidad por id
+
+public Comunidad obtenerComunidadPorId(Long id) throws Exception {
+    String sql = "SELECT * FROM Comunidad WHERE id_comunidad = ?";
+    try (Connection conexion = DatabaseManager.getConnection();
+         PreparedStatement stmt = conexion.prepareStatement(sql)) {
+
+        stmt.setLong(1, id); // Asigna el ID al parámetro de la consulta
+        ResultSet rs = stmt.executeQuery();
+
+        if (rs.next()) {
+            Comunidad comunidad = new Comunidad();
+            comunidad.setId_comunidad(rs.getLong("id_comunidad"));
+            comunidad.setNombre(rs.getString("nombre"));
+            comunidad.setDescripcion(rs.getString("descripcion"));
+            comunidad.setCategoria(rs.getString("categoria"));
+            comunidad.setFechaCreacion(rs.getDate("fechaCreacion")); // Ajusta al formato de la fecha
+            return comunidad;
+        } else {
+            throw new Exception("No se encontró la comunidad con ID: " + id);
+        }
+    } catch (SQLException e) {
+        throw new Exception("Error al obtener la comunidad: " + e.getMessage(), e);
+    }
+}
+
+
+
         /*
-        try (Connection conexion = DatabaseManager.getConnection();
-             PreparedStatement pre = conexion.prepareStatement(sql)) {
-
-            // Establece los parámetros en el orden correcto
-            pre.setString(1, comunidad.getNombre());
-            pre.setString(2, comunidad.getDescripcion());
-            pre.setDate(3, new java.sql.Date(comunidad.getFechaCreacion().getTime())); // Convertir la fecha
-            pre.setString(4, comunidad.getCategoria());
-
-            int rowsAffected = pre.executeUpdate();
-            System.out.println("Filas afectadas: " + rowsAffected);
-
-            return rowsAffected > 0;
-        } catch (SQLException e) {
-            System.out.println("Error al intentar crear la Comunidad en la base de datos: " + e.getMessage());
-            throw new Exception("Error al intentar crear la Comunidad en la base de datos", e);
-        }
-    }
-
-    public String crearComunidad(String nombre, String descripcion, String categoria) throws Exception {
-        Comunidad comunidad = new Comunidad();
-        comunidad.setNombre(nombre);
-        comunidad.setDescripcion(descripcion);
-        comunidad.setFechaCreacion(new Date()); // Establece la fecha de creación a la fecha actual
-        comunidad.setCategoria(categoria);
-
-        if (hasEmptyFields(comunidad)) {
-            throw new Exception("Complete todos los campos.");
-        }
-
-        try {
-            if (crearComunidad(comunidad)) {
-                return "Comunidad creada correctamente.";
-            } else {
-                throw new Exception("No se pudo crear la Comunidad. Intente nuevamente.");
-            }
-        } catch (Exception e) {
-            throw new Exception("Error al crear la comunidad: " + e.getMessage(), e);
-        }
-    }
-
         // Método adicional para verificar la conexión a la base de datos
     public boolean verificarConexion() {
         try (Connection conexion = DatabaseManager.getConnection()) {

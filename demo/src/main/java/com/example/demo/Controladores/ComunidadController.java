@@ -45,8 +45,25 @@ public class ComunidadController {
     public String mostrarNuevaPublicacion() {
     return "NuevaPublicacion";
     }
+//
+//
+//
 
 
+@GetMapping("/Comunidad/{id}")
+public String verDetallesComunidad(@PathVariable Long id, Model model) {
+    try {
+        Comunidad comunidad = comunidadService.obtenerComunidadPorId(id); // Usa el ID para buscar
+        model.addAttribute("comunidad", comunidad); // Añade la comunidad al modelo
+        return "Comunidad"; // Renderiza la plantilla Comunidad.html
+    } catch (Exception e) {
+        model.addAttribute("error", e.getMessage()); // Maneja el error
+        return "Error"; // Redirige a la vista de error
+    }
+}
+
+
+//
     //
     //
     
