@@ -1,6 +1,7 @@
 package com.example.demo.Entidades;
 
 import java.util.Date;
+import java.util.List;
 
 import lombok.Data;
 
@@ -13,5 +14,8 @@ public class Comunidad {
     String descripcion;
     Date fechaCreacion;
     String categoria;
+
+    List<Publicacion> publicaciones;
+
 
 }

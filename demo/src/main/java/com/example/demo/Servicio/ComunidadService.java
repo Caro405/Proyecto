@@ -2,15 +2,14 @@ package com.example.demo.Servicio;
 
 import org.springframework.stereotype.Service;
 
-import java.sql.Connection;
+
 import java.sql.*;
-import java.sql.SQLException;
 import java.util.ArrayList;
 //import java.util.Date;
 import java.util.List;
 
 import com.example.demo.DatabaseManager.DatabaseManager;
-import com.example.demo.Entidades.Comunidad;
+import com.example.demo.Entidades.*;
 
 @Service
 public class ComunidadService {
@@ -96,21 +95,33 @@ public Comunidad obtenerComunidadPorId(Long id) throws Exception {
     }
 }
 
+//obtener las publicaciones
+public List<Comentario> obtenerComentariosPorPublicacion(Long idPublicacion) throws Exception {
+    List<Comentario> comentarios = new ArrayList<>();
+    String sql = "SELECT * FROM Comentario WHERE id_publicacion = ?";
 
+    try (Connection conexion = DatabaseManager.getConnection();
+         PreparedStatement stmt = conexion.prepareStatement(sql)) {
 
-        /*
-        // Método adicional para verificar la conexión a la base de datos
-    public boolean verificarConexion() {
-        try (Connection conexion = DatabaseManager.getConnection()) {
-            boolean isConnected = conexion != null && !conexion.isClosed();
-            System.out.println("Conexión exitosa: " + isConnected);
-            return isConnected;
-        } catch (SQLException e) {
-            System.out.println("Error en la conexión: " + e.getMessage());
-            return false;
+        stmt.setLong(1, id_publicacion);
+        ResultSet rs = stmt.executeQuery();
+
+        while (rs.next()) {
+            Comentario comentario = new Comentario();
+            comentario.setId_publicacion(rs.getLong("id"));
+            comentario.setContenido(rs.getString("contenido"));
+            comentario.setAutor(rs.getString("autor"));
+            comentarios.add(comentario);
         }
+    } catch (SQLException e) {
+        throw new Exception("Error al obtener comentarios: " + e.getMessage(), e);
     }
-*/
+
+    return comentarios;
+}
+
+
+//
 
 
 }

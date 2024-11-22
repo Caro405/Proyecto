@@ -32,7 +32,7 @@ CREATE TABLE archivo (
     fecha DATE
 );
 
-CREATE TABLE publicacion (
+CREATE TABLE Publicacion (
     id_publicacion INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR (100) NOT NULL,
     descripcion TEXT

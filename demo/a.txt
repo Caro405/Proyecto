@@ -61,7 +61,7 @@ docker-compose down
 docker-compose up --build
 
 
-Si hacen cambios usar estos comandos 
+Si hacen cambios usar estos comandos
 docker-compose restart app
 mvn clean install -DskipTests
 docker-compose up -d

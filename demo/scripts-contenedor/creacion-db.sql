@@ -13,7 +13,7 @@ CREATE TABLE usuario (
     id_usuario INT  NOT NULL AUTO_INCREMENT PRIMARY KEY,
     correo VARCHAR (100) NOT NULL,
     nombre VARCHAR (100) NOT NULL,
-    contrasena VARCHAR (100) NOT NULL,    
+    contrasena VARCHAR (100) NOT NULL,
     rol VARCHAR (100)
 );
 
@@ -32,7 +32,7 @@ CREATE TABLE archivo (
     fecha DATE
 );
 
-CREATE TABLE publicacion (
+CREATE TABLE Publicacion (
     id_publicacion INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR (100) NOT NULL,
     descripcion TEXT
