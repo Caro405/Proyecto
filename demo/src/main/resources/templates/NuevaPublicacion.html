@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva Publicación</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8ebe1;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .contenedor {
+            text-align: center;
+            background-color: #fff4ed;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 60%;
+        }
+
+        h1 {
+            color: #d35400;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 1em;
+            color: #d35400;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .botones {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            width: 48%;
+        }
+
+        .btn.crear {
+            background-color: #d35400;
+            color: white;
+        }
+
+        .btn.volver {
+            background-color: #f8ebe1;
+            color: #d35400;
+            border: 1px solid #d35400;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Nueva Publicación</h1>
+        <form action="/crearPublicacion" method="POST">
+            <div class="form-group">
+                <label for="titulo">Título</label>
+                <input type="text" id="titulo" name="titulo" placeholder="Escribe el título de tu publicación" required>
+            </div>
+            <div class="form-group">
+                <label for="descripcion">Descripción</label>
+                <textarea id="descripcion" name="descripcion" placeholder="Escribe la descripción de tu publicación" required></textarea>
+            </div>
+            <div class="botones">
+                <button type="submit" class="btn crear">Crear</button>
+                <a href="/PantallaInicio" class="btn volver">Volver</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
