@@ -20,6 +20,7 @@ public class LoginController {
     public String redirigirLogin() {
         return "redirect:/Login";
     }
+
     @GetMapping("/PantallaInicio")
 public String mostrarPantallaInicio() {
     return "PantallaInicio";
@@ -43,4 +44,5 @@ public String mostrarPantallaInicio() {
             return "redirect:/Login";
         }
     }
+    
 }

@@ -22,18 +22,51 @@ public class ComunidadController {
         this.publicacionService = publicacionService;
     }
 
-    // Mostrar la pantalla para explorar comunidades
+
+        // Mostrar la pantalla para crear una comunidad
+        @GetMapping("/CrearComunidad")
+        public String mostrarCrearComunidad() {
+                return "CrearComunidad";
+            }
+        
+    
+        // Crear una nueva comunidad
+        @PostMapping("/CrearComunidad")
+        public String crearComunidad(
+                @RequestParam String nombre,
+                @RequestParam String descripcion,
+                @RequestParam String categoria,
+                Model model) {
+            try {
+                // Crear un objeto Comunidad
+                Comunidad comunidad = new Comunidad();
+                comunidad.setNombre(nombre);
+                comunidad.setDescripcion(descripcion);
+                comunidad.setCategoria(categoria);
+                comunidad.setFechaCreacion(new Date()); // Fecha actual
+    
+                // Guardar la comunidad utilizando el servicio
+                Comunidad nuevaComunidad = comunidadService.crearComunidad(comunidad);
+    
+                // Agregar la comunidad al modelo
+                model.addAttribute("comunidad", nuevaComunidad);
+    
+                return "Comunidad"; // Renderizar la vista Comunidad.html
+            } catch (Exception e) {
+                // Manejo de errores
+                model.addAttribute("error", e.getMessage());
+                return "CrearComunidad";
+            }
+        }
+    
+
+        // Mostrar la pantalla para explorar comunidades
     @GetMapping("/ExplorarComunidades")
     public String explorarComunidades(Model model) {
         model.addAttribute("comunidades", comunidadService.obtenerTodas());
         return "ExplorarComunidades";
     }
 
-    // Mostrar la pantalla para crear una comunidad
-    @GetMapping("/CrearComunidad")
-    public String mostrarCrearComunidad() {
-        return "CrearComunidad";
-    }
 
     // Mostrar la pantalla para el banco de archivos
     @GetMapping("/BancoDeArchivos")
@@ -47,63 +80,47 @@ public class ComunidadController {
         return "NuevaPublicacion";
     }
 
+    //Publicaciones
+    @GetMapping("/Publicaciones/{idComunidad}")
+    public String listarPublicaciones(@PathVariable Long idComunidad, Model model) {
+    try {
+        Comunidad comunidad = comunidadService.obtenerComunidadPorId(idComunidad);
+        List<Publicacion> publicaciones = publicacionService.obtenerPublicacionesPorComunidad(idComunidad);
+
+        model.addAttribute("comunidad", comunidad);
+        model.addAttribute("publicaciones", publicaciones);
+
+        return "Publicaciones";
+    } catch (Exception e) {
+        model.addAttribute("error", e.getMessage());
+        return "Error";
+    }
+}
+
+
     // Ver detalles de una comunidad (incluye publicaciones y comentarios)
-    @GetMapping("/Comunidad/{id}")
-    public String verDetallesComunidad(@PathVariable Long id, Model model) {
+    @GetMapping("/PantallaInicio/Comunidad/{idComunidad}")
+    public String verDetallesComunidad(@PathVariable Long idComunidad, Model model) {
         try {
-            // Obtener la comunidad por ID
-            Comunidad comunidad = comunidadService.obtenerComunidadPorId(id);
-
-            // Obtener las publicaciones de la comunidad
-            List<Publicacion> publicaciones = publicacionService.obtenerPublicacionesPorComunidad(id);
-
-            // Para cada publicación, obtener los comentarios
-            for (Publicacion publicacion : publicaciones) {
-                List<Comentario> comentarios = publicacionService.obtenerComentariosPorPublicacion(publicacion.getId());
-                publicacion.setComentarios(comentarios); // Asociar los comentarios a la publicación
-            }
-
-            // Asociar las publicaciones a la comunidad
+            Comunidad comunidad = comunidadService.obtenerComunidadPorId(idComunidad);
+            List<Publicacion> publicaciones = publicacionService.obtenerPublicacionesPorComunidad(idComunidad);
             comunidad.setPublicaciones(publicaciones);
-
-            // Agregar la comunidad al modelo para la vista
+    
             model.addAttribute("comunidad", comunidad);
-
-            return "Comunidad"; // Renderizar la vista Comunidad.html
+            return "Comunidad"; // Nombre del archivo HTML para los detalles de la comunidad
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
-            return "Error"; // Redirige a la página de error
+            return "Error"; // Vista para manejar errores
         }
     }
+    
+    @GetMapping("/Publicacion/{idComunidad}")
+public String nuevaPublicacion(@PathVariable Long idComunidad, Model model) {
+    model.addAttribute("idComunidad", idComunidad);
+    return "NuevaPublicacion"; 
+}
 
-    // Crear una nueva comunidad
-    @PostMapping("/CrearComunidad")
-    public String crearComunidad(
-            @RequestParam String nombre,
-            @RequestParam String descripcion,
-            @RequestParam String categoria,
-            Model model) {
-        try {
-            // Crear un objeto Comunidad
-            Comunidad comunidad = new Comunidad();
-            comunidad.setNombre(nombre);
-            comunidad.setDescripcion(descripcion);
-            comunidad.setCategoria(categoria);
-            comunidad.setFechaCreacion(new Date()); // Fecha actual
 
-            // Guardar la comunidad utilizando el servicio
-            Comunidad nuevaComunidad = comunidadService.crearComunidad(comunidad);
-
-            // Agregar la comunidad al modelo
-            model.addAttribute("comunidad", nuevaComunidad);
-
-            return "Comunidad"; // Renderizar la vista Comunidad.html
-        } catch (Exception e) {
-            // Manejo de errores
-            model.addAttribute("error", e.getMessage());
-            return "CrearComunidad";
-        }
-    }
 
 
   

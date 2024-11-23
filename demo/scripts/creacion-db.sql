@@ -35,5 +35,8 @@ CREATE TABLE archivo (
 CREATE TABLE Publicacion (
     id_publicacion INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR (100) NOT NULL,
-    descripcion TEXT
+    descripcion TEXT,
+    id_comunidad INT NOT NULL,
+    CONSTRAINT fk_publicacion_comunidad FOREIGN KEY (id_comunidad) REFERENCES Comunidad(id_comunidad)
 );
+
