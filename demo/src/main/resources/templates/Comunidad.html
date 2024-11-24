@@ -117,7 +117,7 @@
         
         <!-- Botones de Acción -->
         <a href="/PantallaInicio/NuevaPublicacion" class="btn">Nueva Publicación</a>
-        <a href="/PantallaInicio/Publicaciones" class="btn">Ver Publicaciones</a>
+        <a th:href="@{'/PantallaInicio/Publicaciones/' + ${comunidad.id_comunidad}}"class="btn">Ver Detalles</a>
         <a href="/PantallaInicio/ExplorarComunidades" class="btn">Volver</a>
     </div>
 </body>

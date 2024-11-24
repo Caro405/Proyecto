@@ -83,9 +83,15 @@ public class ComunidadController {
         return "NuevaPublicacion";
     }
 
+    // Mostrar la pantalla para ver publicación
+    @GetMapping("/Publicaciones")
+    public String Publicacion() {
+        return "Publicaciones";
+    }
+
     //Publicaciones
     @GetMapping("/Publicaciones/{idComunidad}")
-    public String listarPublicaciones(@PathVariable Long idComunidad, Model model) {
+public String listarPublicaciones(@PathVariable Long idComunidad, Model model) {
     try {
         Comunidad comunidad = comunidadService.obtenerComunidadPorId(idComunidad);
         List<Publicacion> publicaciones = publicacionService.obtenerPublicacionesPorComunidad(idComunidad);
@@ -93,7 +99,7 @@ public class ComunidadController {
         model.addAttribute("comunidad", comunidad);
         model.addAttribute("publicaciones", publicaciones);
 
-        return "Publicaciones";
+        return "Publicaciones"; // Nombre del archivo HTML
     } catch (Exception e) {
         model.addAttribute("error", e.getMessage());
         return "Error";
@@ -101,26 +107,32 @@ public class ComunidadController {
 }
 
 
+
     // Ver detalles de una comunidad (incluye publicaciones y comentarios)
-   @GetMapping("/Comunidad/{idComunidad}")
+  
+    @GetMapping("/Comunidad/{idComunidad}")
 public String verDetallesComunidad(@PathVariable Long idComunidad, Model model) {
     try {
         Comunidad comunidad = comunidadService.obtenerComunidadPorId(idComunidad);
-        List<Publicacion> publicaciones = publicacionService.obtenerPublicacionesPorComunidad(idComunidad);
-        comunidad.setPublicaciones(publicaciones);
-
         model.addAttribute("comunidad", comunidad);
-        return "Comunidad"; // Nombre del archivo HTML para los detalles de la comunidad
+        return "Comunidad"; // El nombre del archivo HTML en templates
     } catch (Exception e) {
         model.addAttribute("error", e.getMessage());
-        return "Error"; // Vista para manejar errores
+        return "Error";
     }
 }
 
-    @GetMapping("/Publicacion/{idComunidad}")
+    
+
+    @GetMapping("/NuevaPublicacion/{idComunidad}")
 public String nuevaPublicacion(@PathVariable Long idComunidad, Model model) {
     model.addAttribute("idComunidad", idComunidad);
     return "NuevaPublicacion"; 
+}
+    @GetMapping("/Publicacio/{idComunidad}")
+    public String Publicacion(@PathVariable Long idComunidad, Model model) {
+        model.addAttribute("idComunidad", idComunidad);
+        return "Publicaciones"; 
 }
 
 
