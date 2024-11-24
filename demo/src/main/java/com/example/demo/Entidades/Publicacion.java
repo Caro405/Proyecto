@@ -2,24 +2,29 @@ package com.example.demo.Entidades;
 
 import java.util.List;
 
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
+@Entity
+@Table(name = "Publicacion") // Nombre de la tabla en la base de datos
 public class Publicacion {
 
-    Long id_publicacion;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_publicacion")
+    private Long id_publicacion;
 
-    String titulo;
-    String descripcion;
+    @Column(name = "titulo", nullable = false, length = 100)
+    private String titulo;
 
-    List<Comentario> comentarios;
+    @Column(name = "descripcion")
+    private String descripcion;
 
-    public void setId(Long id) {
-        this.id_publicacion = id;
-    }
+    @ManyToOne
+    @JoinColumn(name = "id_comunidad", referencedColumnName = "id_comunidad") // Relación con Comunidad
+    private Comunidad comunidad;
 
-    public Long getId() {
-        return id_publicacion;
-    }
-
+    @OneToMany(mappedBy = "publicacion", cascade = CascadeType.ALL, orphanRemoval = true) // Relación con Comentario
+    private List<Comentario> comentarios;
 }

@@ -9,21 +9,21 @@
             font-family: Arial, sans-serif;
             background-color: #f8ebe1;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             height: 100vh;
         }
 
         .contenedor {
             text-align: center;
             background-color: #fff4ed;
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 60%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            width: 50%;
+            max-width: 600px;
         }
 
         h1 {
@@ -33,21 +33,21 @@
         }
 
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             text-align: left;
         }
 
         .form-group label {
             display: block;
-            font-size: 1em;
+            font-size: 1.1em;
             color: #d35400;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             font-size: 1em;
             border: 1px solid #ddd;
             border-radius: 5px;
@@ -56,28 +56,33 @@
 
         .form-group textarea {
             resize: vertical;
-            height: 100px;
+            height: 120px;
         }
 
         .botones {
             display: flex;
             justify-content: space-between;
+            gap: 10px;
             margin-top: 20px;
         }
 
         .btn {
-            padding: 10px 20px;
+            padding: 12px 20px;
             font-size: 1em;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             text-align: center;
-            width: 48%;
+            flex: 1;
         }
 
         .btn.crear {
             background-color: #d35400;
             color: white;
+        }
+
+        .btn.crear:hover {
+            background-color: #e67e22;
         }
 
         .btn.volver {
@@ -86,38 +91,40 @@
             border: 1px solid #d35400;
         }
 
-        .btn:hover {
-            opacity: 0.9;
+        .btn.volver:hover {
+            background-color: #fce4d6;
+        }
+
+        @media (max-width: 768px) {
+            .contenedor {
+                width: 90%;
+            }
         }
     </style>
 </head>
 <body>
     <div class="contenedor">
         <h1>Nueva Publicación</h1>
-<<<<<<< HEAD
-        <form th:action="@{/Publicacion/Crear}" method="POST">
-            <!-- Campo oculto para pasar el ID de la comunidad -->
-            <input type="hidden" name="idComunidad" th:value="${idComunidad}">
-=======
         <form action="/crearPublicacion" method="POST">
->>>>>>> 56c3eb0 (Pantallas y botones)
+            <!-- Campo oculto para pasar el ID de la comunidad -->
+            <input type="hidden" name="idComunidad" value="${idComunidad}">
+            
+            <!-- Campo Título -->
             <div class="form-group">
                 <label for="titulo">Título</label>
                 <input type="text" id="titulo" name="titulo" placeholder="Escribe el título de tu publicación" required>
             </div>
+            
+            <!-- Campo Descripción -->
             <div class="form-group">
                 <label for="descripcion">Descripción</label>
                 <textarea id="descripcion" name="descripcion" placeholder="Escribe la descripción de tu publicación" required></textarea>
             </div>
+            
+            <!-- Botones -->
             <div class="botones">
                 <button type="submit" class="btn crear">Crear</button>
-<<<<<<< HEAD
-                
-                <!-- Botón dinámico para volver a la página anterior -->
-                <a th:href="@{/PantallaInicio/Comunidad/{idComunidad}(idComunidad=${idComunidad})}" class="btn volver">Volver</a>
-=======
-                <a href="/PantallaInicio" class="btn volver">Volver</a>
->>>>>>> 56c3eb0 (Pantallas y botones)
+                <button type="button" class="btn volver" onclick="history.back()">Volver</button>
             </div>
         </form>
     </div>

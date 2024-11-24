@@ -102,21 +102,21 @@ public class ComunidadController {
 
 
     // Ver detalles de una comunidad (incluye publicaciones y comentarios)
-    @GetMapping("/PantallaInicio/Comunidad/{idComunidad}")
-    public String verDetallesComunidad(@PathVariable Long idComunidad, Model model) {
-        try {
-            Comunidad comunidad = comunidadService.obtenerComunidadPorId(idComunidad);
-            List<Publicacion> publicaciones = publicacionService.obtenerPublicacionesPorComunidad(idComunidad);
-            comunidad.setPublicaciones(publicaciones);
-    
-            model.addAttribute("comunidad", comunidad);
-            return "Comunidad"; // Nombre del archivo HTML para los detalles de la comunidad
-        } catch (Exception e) {
-            model.addAttribute("error", e.getMessage());
-            return "Error"; // Vista para manejar errores
-        }
+   @GetMapping("/Comunidad/{idComunidad}")
+public String verDetallesComunidad(@PathVariable Long idComunidad, Model model) {
+    try {
+        Comunidad comunidad = comunidadService.obtenerComunidadPorId(idComunidad);
+        List<Publicacion> publicaciones = publicacionService.obtenerPublicacionesPorComunidad(idComunidad);
+        comunidad.setPublicaciones(publicaciones);
+
+        model.addAttribute("comunidad", comunidad);
+        return "Comunidad"; // Nombre del archivo HTML para los detalles de la comunidad
+    } catch (Exception e) {
+        model.addAttribute("error", e.getMessage());
+        return "Error"; // Vista para manejar errores
     }
-    
+}
+
     @GetMapping("/Publicacion/{idComunidad}")
 public String nuevaPublicacion(@PathVariable Long idComunidad, Model model) {
     model.addAttribute("idComunidad", idComunidad);

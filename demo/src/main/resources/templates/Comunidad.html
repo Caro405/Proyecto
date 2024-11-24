@@ -20,41 +20,48 @@
             background-color: #fff4ed;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            width: 350px;
             text-align: center;
         }
 
         .titulo {
-            font-size: 1.5em;
+            font-size: 1.8em;
             background-color: #cfe2f3;
             padding: 10px;
             border-radius: 5px;
             margin-bottom: 20px;
-            color: #000;
+            color: #333;
         }
 
         p {
             margin: 15px 0;
             font-size: 1em;
-            color: #333;
+            color: #555;
         }
 
         ul {
             list-style: none;
             padding: 0;
-            margin: 10px 0 20px;
+            margin: 15px 0 20px;
+            font-size: 0.95em;
         }
 
         ul li {
-            background-color: #e8e8e8;
+            background-color: #f1f1f1;
             padding: 10px;
             margin: 5px 0;
             border-radius: 5px;
+            text-align: left;
+        }
+
+        ul li span {
+            font-weight: bold;
+            color: #000;
         }
 
         .btn {
-            padding: 10px 20px;
+            padding: 12px 25px;
             font-size: 1em;
             border: none;
             border-radius: 5px;
@@ -62,7 +69,14 @@
             background-color: #d35400;
             color: white;
             text-decoration: none;
+            margin: 10px 5px;
             display: inline-block;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #e67e22;
+            transform: scale(1.05);
         }
 
         .btn-top {
@@ -75,28 +89,36 @@
             padding: 10px 15px;
             border-radius: 5px;
             font-size: 1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-top:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
         }
     </style>
 </head>
 <body>
     <a href="/PantallaInicio/BancoDeArchivos" class="btn-top">Banco de Archivos</a>
     <div class="contenedor">
+        <!-- Nombre de la Comunidad -->
         <h1 class="titulo" th:text="${comunidad.nombre}">Nombre de la Comunidad</h1>
+        
+        <!-- Descripción -->
         <p th:text="${comunidad.descripcion}">
             Esta es una descripción breve de la comunidad.
         </p>
+        
+        <!-- Detalles -->
         <ul>
             <li>Categoría: <span th:text="${comunidad.categoria}">Categoría</span></li>
             <li>Creada el: <span th:text="${#dates.format(comunidad.fechaCreacion, 'dd/MM/yyyy')}">Fecha</span></li>
         </ul>
+        
+        <!-- Botones de Acción -->
         <a href="/PantallaInicio/NuevaPublicacion" class="btn">Nueva Publicación</a>
-<<<<<<< HEAD
-        <a href="/PantallaInicio/Publicaciones" class="btn">Ver publicaciones</a>
+        <a href="/PantallaInicio/Publicaciones" class="btn">Ver Publicaciones</a>
         <a href="/PantallaInicio/ExplorarComunidades" class="btn">Volver</a>
-+    </div>
-=======
-        <a href="/PantallaInicio/ExplorarComunidades" class="btn">Volver</a>
->>>>>>> 56c3eb0 (Pantallas y botones)
     </div>
 </body>
 </html>
