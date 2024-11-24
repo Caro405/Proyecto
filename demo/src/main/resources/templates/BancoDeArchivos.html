@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,110 +7,81 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f8ebe1;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
+            margin: 20px;
+            background-color: #f7ede2;
         }
-
-        .titulo {
-            font-size: 1.5em;
+        h1 {
+            text-align: center;
             background-color: #3498db;
             color: white;
             padding: 10px;
-            border-radius: 10px;
+        }
+        form {
+            margin: 20px 0;
             text-align: center;
-            width: 80%;
-            margin-bottom: 20px;
         }
-
-        .archivo {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #d8eafd;
+        input[type="file"] {
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        th, td {
             padding: 10px;
-            margin: 10px 0;
-            border-radius: 10px;
-            width: 80%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            border-bottom: 1px solid #ddd;
         }
-
-        .archivo span {
-            font-size: 1em;
-            color: #333;
-        }
-
-        .archivo a {
-            width: 20px;
-            height: 20px;
-            background-color: #2c3e50;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .button {
+            padding: 10px 15px;
             color: white;
             text-decoration: none;
-            font-size: 1em;
-        }
-
-        .selector {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
-            width: 80%;
-        }
-
-        .input-archivo {
-            flex: 1;
-            padding: 10px;
-            border: 2px solid #ddd;
             border-radius: 5px;
-            margin-right: 10px;
-            font-size: 1em;
+            display: inline-block;
+            text-align: center;
         }
-
-        .btn {
-            padding: 10px 20px;
-            font-size: 1em;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        .button.upload {
+            background-color: #e67e22;
         }
-
-        .btn.aceptar {
-            background-color: #d35400;
-            color: white;
+        .button.download {
+            background-color: #2ecc71;
         }
-
-        .btn.cancelar {
-            background-color: #bdc3c7;
-            color: black;
-            margin-top: 10px;
+        .button:hover {
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
-    <div class="titulo">Banco de Archivos</div>
-
-    <!-- Mostrar la lista de archivos -->
-    <div th:each="archivo : ${archivos}" class="archivo">
-        <span th:text="${archivo}">Nombre del archivo</span>
-        <a th:href="@{'/uploads/' + ${archivo}}" download>⬇</a>
-    </div>
-
-    <!-- Formulario para subir archivos -->
-    <form action="/BancoDeArchivos/subir" method="POST" enctype="multipart/form-data" class="selector">
-        <input type="file" name="archivo" class="input-archivo">
-        <button type="submit" class="btn aceptar">Subir Archivo</button>
+    <h1>Banco de Archivos</h1>
+    <form action="/BancoDeArchivos/subir" method="post" enctype="multipart/form-data">
+        <input type="file" name="archivo" required>
+        <button class="button upload" type="submit">Subir Archivo</button>
     </form>
 
-    <!-- <a href="/" class="btn cancelar">Volver</a> -->
-
+    <h2>Archivos Disponibles</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre del Archivo</th>
+                <th>Tamaño</th>
+                <th>Fecha de Subida</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Archivos cargados dinámicamente -->
+            <tr th:each="archivo : ${archivos}">
+                <td th:text="${archivo.nombreArchivo}"></td>
+                <td th:text="${archivo.tamano + ' bytes'}"></td>
+                <td th:text="${archivo.fechaSubida}"></td>
+                <td>
+                    <a th:href="@{/BancoDeArchivos/descargar/{nombreArchivo}(nombreArchivo=${archivo.nombreArchivo})}" class="button download">Descargar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
+
+

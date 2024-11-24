@@ -9,6 +9,9 @@ import com.example.demo.Servicio.*;
 import com.example.demo.Entidades.*;
 import org.springframework.ui.Model;
 
+import com.example.demo.Servicio.ComunidadService;
+
+
 @Controller
 @RequestMapping("/PantallaInicio")
 public class ComunidadController {
@@ -62,7 +65,7 @@ public class ComunidadController {
 
         // Mostrar la pantalla para explorar comunidades
     @GetMapping("/ExplorarComunidades")
-    public String explorarComunidades(Model model) {
+    public String explorarComunidades(Model model) throws Exception {
         model.addAttribute("comunidades", comunidadService.obtenerTodas());
         return "ExplorarComunidades";
     }
