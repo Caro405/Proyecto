@@ -1,0 +1,257 @@
+[33mcommit 0ef6059ac2e48a2eb52d6d5446eace16841d00bd[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: 4lph495 araque <alphaparasite95@gmail.com>
+Date:   Sun Nov 24 01:01:09 2024 +0000
+
+    56c3eb0e066ab209998690c691f614d524133976
+
+[33mcommit e556311274b8883e01cc34e3d41f58937dce09b2[m
+Author: Jul14n08 araque <j-araque@javeriana.edu.co>
+Date:   Fri Nov 22 17:00:03 2024 +0000
+
+    Pantallas y botones
+
+[33mcommit c8f40a019c8e437c89fc997e4a8604e35f404599[m
+Author: Caro405 R <rios_carolf@javeriana.edu.co>
+Date:   Sat Nov 23 01:32:35 2024 +0000
+
+    comunidad, publicaciones y comentarios
+
+[33mcommit 215d4f9abce7aa598df09a5938d04de2138be140[m
+Author: Caro405 R <rios_carolf@javeriana.edu.co>
+Date:   Fri Nov 22 20:59:10 2024 +0000
+
+    prueba
+
+[33mcommit 56c3eb0e066ab209998690c691f614d524133976[m
+Author: Jul14n08 araque <j-araque@javeriana.edu.co>
+Date:   Fri Nov 22 17:00:03 2024 +0000
+
+    Pantallas y botones
+
+[33mcommit 8253b91f318e7aa14d8410b3e66c2ee4676bc6be[m
+Author: Caro405 R <rios_carolf@javeriana.edu.co>
+Date:   Fri Nov 22 00:11:49 2024 +0000
+
+    Funcionalidad ver detalles
+
+[33mcommit 0199db7382b075c0124be7a07141182f04395a30[m
+Author: Caro405 R <rios_carolf@javeriana.edu.co>
+Date:   Thu Nov 21 22:53:13 2024 +0000
+
+    botones de volver
+
+[33mcommit c2729f3cf28e2d8407ec384bce9a712db36cf269[m
+Author: Caro405 R <rios_carolf@javeriana.edu.co>
+Date:   Thu Nov 21 18:46:46 2024 +0000
+
+    correcion de id_comunidad
+
+[33mcommit ebbe17b142e585c0c7c777fd4b4709873d1cc8c6[m
+Author: Caro405 R <rios_carolf@javeriana.edu.co>
+Date:   Thu Nov 21 18:35:52 2024 +0000
+
+    Pantallas y controladores relacionados con comunidad y banco de archivos
+
+[33mcommit 0859efe92ca45ee6de467e33d9b904d00e687c60[m
+Author: Caro405 R <rios_carolf@javeriana.edu.co>
+Date:   Thu Nov 21 05:11:11 2024 +0000
+
+    pantallas varias
+
+[33mcommit 441ccef2e8c27b2439bc5111e2e98adc3e902932[m
+Author: Caro405 R <rios_carolf@javeriana.edu.co>
+Date:   Thu Nov 21 04:47:37 2024 +0000
+
+    cambios en comunidadservice
+
+[33mcommit 04b70839498d49aa9324f778d7172e00f0ccf8c3[m
+Author: Caro405 R <rios_carolf@javeriana.edu.co>
+Date:   Thu Nov 21 03:38:08 2024 +0000
+
+    Adiccion de un comando en el .gitpodyml
+
+[33mcommit 7275ee3431dc2eee96ea76909862639e7b474b90[m
+Author: Caro405 R <rios_carolf@javeriana.edu.co>
+Date:   Thu Nov 21 03:33:38 2024 +0000
+
+    Pantallas funcionales Login, Registrar y PantallInicio
+
+[33mcommit a20f129136f90836ad9105d8e9466c1ad987ae15[m
+Author: Caro405 R <rios_carolf@javeriana.edu.co>
+Date:   Thu Nov 21 01:54:35 2024 +0000
+
+    cambios orden de variables
+
+[33mcommit ddd6b6a5ba30ad67734a4f2e05137b1a1554c17c[m
+Author: Caro405 R <rios_carolf@javeriana.edu.co>
+Date:   Thu Nov 21 00:47:21 2024 +0000
+
+    Comentarios en los imports
+
+[33mcommit 54d7baa6b3650ff890250af0330b9551542c63a4[m
+Author: Caro405 R <rios_carolf@javeriana.edu.co>
+Date:   Wed Nov 20 21:12:57 2024 +0000
+
+    varios
+
+[33mcommit 71cd09b95eb58c349534d44f4a3bbc42bb024358[m
+Author: Caro405 R <rios_carolf@javeriana.edu.co>
+Date:   Wed Nov 20 21:06:58 2024 +0000
+
+    varios
+
+[33mcommit 040b83f4cfdb6d1c9c768ac2313de0868bb48a9d[m
+Author: Caro405 R <rios_carolf@javeriana.edu.co>
+Date:   Wed Nov 20 05:23:47 2024 +0000
+
+    pantallas
+
+[33mcommit 93b0708c552b47b64b46d0104f94d9e75d1cb741[m
+Author: Jul14n08 araque <j-araque@javeriana.edu.co>
+Date:   Tue Nov 19 03:18:17 2024 +0000
+
+    Base de datos
+
+[33mcommit 3a9aed12ee57a4c1043460815b599401348091f7[m
+Author: Caro405 R <rios_carolf@javeriana.edu.co>
+Date:   Tue Nov 19 01:37:19 2024 +0000
+
+    varios
+
+[33mcommit 908a4efe2f88ef52e031a7279e3ed919ad421a49[m
+Author: Jul14n08 araque <j-araque@javeriana.edu.co>
+Date:   Tue Nov 19 01:20:49 2024 +0000
+
+    Arreglo de controladores
+
+[33mcommit f77efcbd5296b79150c9e3353b1aade2717b643e[m
+Author: Caro405 R <rios_carolf@javeriana.edu.co>
+Date:   Mon Nov 18 22:07:08 2024 +0000
+
+    Actualización del .gitignore y docker-compose.yml
+
+[33mcommit c4a11d84a85dff4ba534161e85560f5cd6224c14[m[33m ([m[1;31morigin/dev[m[33m)[m
+Author: Caro405 R <rios_carolf@javeriana.edu.co>
+Date:   Mon Nov 18 04:18:16 2024 +0000
+
+    adición de nuevas clases
+
+[33mcommit 272a1f047d2885be5cfac267ce6f40d118f17ef3[m
+Author: Jul14n08 araque <j-araque@javeriana.edu.co>
+Date:   Fri Nov 15 13:31:34 2024 +0000
+
+    Puertos
+
+[33mcommit c6428b6c10e0c4ca75966a76e74bd06194fa500d[m
+Author: Jul14n08 araque <j-araque@javeriana.edu.co>
+Date:   Fri Nov 15 13:27:45 2024 +0000
+
+    Cambio de puertos
+
+[33mcommit 56ed7f4ec13453839f9fc8dc3b7a2ca19260c6ab[m
+Author: Jul14n08 araque <j-araque@javeriana.edu.co>
+Date:   Fri Nov 15 13:22:52 2024 +0000
+
+    Cambio de puertos
+
+[33mcommit c47ec36a3295523904b1d163537a76d0e593f931[m
+Author: Caro405 R <rios_carolf@javeriana.edu.co>
+Date:   Fri Nov 15 12:47:07 2024 +0000
+
+    varios
+
+[33mcommit 78f44bf2272796058d729a21719430c0d3d0ee8b[m
+Author: Caro405 R <rios_carolf@javeriana.edu.co>
+Date:   Fri Nov 15 12:38:25 2024 +0000
+
+    getmapping comunidadA
+
+[33mcommit 733578def710fa28dfbcca3eaf21d942c9ab9f4b[m
+Author: Jul14n08 araque <j-araque@javeriana.edu.co>
+Date:   Fri Nov 15 02:12:00 2024 +0000
+
+    Crear usuario
+
+[33mcommit 6837dd9186624a2c4ac1665b653ad39f2abe449f[m
+Author: Jul14n08 araque <j-araque@javeriana.edu.co>
+Date:   Wed Nov 13 13:40:12 2024 +0000
+
+    Actualizacion de pantalla crear Usuario
+
+[33mcommit 39ed5cfb4faa271ccffd17c7a551e9860f634a56[m
+Author: Caro405 R <rios_carolf@javeriana.edu.co>
+Date:   Wed Nov 13 05:41:54 2024 +0000
+
+    cambios varios
+
+[33mcommit 945d58f9409410f43b297baf326900b98bd0898c[m
+Author: Jul14n08 araque <j-araque@javeriana.edu.co>
+Date:   Wed Nov 13 04:20:09 2024 +0000
+
+    Puertos
+
+[33mcommit c3bf505d2717b235d6b9ed2ca91109f4a63a6f0b[m
+Author: Caro405 R <rios_carolf@javeriana.edu.co>
+Date:   Mon Nov 11 00:14:46 2024 +0000
+
+    Varios
+
+[33mcommit 70ae3aae1c34e600bde5c34cd2db186f339da93a[m
+Author: Caro405 R <rios_carolf@javeriana.edu.co>
+Date:   Sun Nov 10 22:53:27 2024 +0000
+
+    correxiones varias
+
+[33mcommit cd91fe83e68ddacc009ac99848e4a50d7dfc6681[m
+Author: Caro405 R <rios_carolf@javeriana.edu.co>
+Date:   Sun Nov 10 22:13:27 2024 +0000
+
+    Re plantamiento de clases
+
+[33mcommit 03f63d8287c8e3224423fb6cdfe446957d2b88d7[m
+Author: Jul14n08 araque <j-araque@javeriana.edu.co>
+Date:   Sun Nov 10 19:45:37 2024 +0000
+
+    Conexiones
+
+[33mcommit 62b3377149becfb5bc1c07b09c035c28e97e7967[m
+Author: Caro405 R <rios_carolf@javeriana.edu.co>
+Date:   Sun Nov 10 16:32:53 2024 +0000
+
+    correción paquete
+
+[33mcommit d7711a0141e35ddc16b9b586c654ffd919d9f280[m
+Author: Caro405 R <rios_carolf@javeriana.edu.co>
+Date:   Fri Nov 8 12:35:06 2024 +0000
+
+    Pantallas relacionadas con comunidad
+
+[33mcommit 7fe17ac69c8a0b79be7b27a08f81869ba7ed991d[m
+Author: Jul14n08 araque <j-araque@javeriana.edu.co>
+Date:   Fri Nov 8 06:12:51 2024 +0000
+
+    conexion
+
+[33mcommit bc3bf35f1b92da5d8df792fa4b90d8c64912e989[m
+Author: DiegoPUJ Martinez <diego-martinezc@javeriana.edu.co>
+Date:   Wed Nov 6 03:06:42 2024 +0000
+
+    Descripcion de los cambios realizados
+
+[33mcommit 4361350d7953f94fd2c11b4f4be08f4c999916a7[m
+Author: Caro405 R <rios_carolf@javeriana.edu.co>
+Date:   Thu Oct 31 19:36:32 2024 +0000
+
+    avance login
+
+[33mcommit e49fe8df0f7b303b3cf580619625301f3ea685ad[m
+Author: Caro405 R <rios_carolf@javeriana.edu.co>
+Date:   Thu Oct 31 15:49:58 2024 +0000
+
+    Login base
+
+[33mcommit 538d4e3e211f320211a39bb23d2bd600f1fe7920[m
+Author: Caro405 R <rios_carolf@javeriana.edu.co>
+Date:   Thu Oct 31 05:02:10 2024 +0000
+
+    creación repositorio

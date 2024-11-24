@@ -21,7 +21,14 @@ public class ComunidadService {
 
             stmt.setString(1, comunidad.getNombre());
             stmt.setString(2, comunidad.getDescripcion());
-            stmt.setDate(3, new java.sql.Date(comunidad.getFechaCreacion().getTime()));
+
+            // Manejo de la fecha, con validación de null
+            if (comunidad.getFechaCreacion() != null) {
+                stmt.setDate(3, java.sql.Date.valueOf(comunidad.getFechaCreacion()));
+            } else {
+                stmt.setDate(3, null);
+            }
+
             stmt.setString(4, comunidad.getCategoria());
 
             int rowsAffected = stmt.executeUpdate();
@@ -35,6 +42,9 @@ public class ComunidadService {
             }
 
             return comunidad;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new Exception("Error al crear la comunidad: " + e.getMessage());
         }
     }
 
@@ -52,13 +62,16 @@ public class ComunidadService {
                 comunidad.setId_comunidad(rs.getLong("id_comunidad"));
                 comunidad.setNombre(rs.getString("nombre"));
                 comunidad.setDescripcion(rs.getString("descripcion"));
-                comunidad.setFechaCreacion(rs.getDate("fechaCreacion"));
+                comunidad.setFechaCreacion(rs.getDate("fechaCreacion").toLocalDate());
                 comunidad.setCategoria(rs.getString("categoria"));
 
                 comunidades.add(comunidad);
             }
 
             return comunidades;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new Exception("Error al obtener todas las comunidades: " + e.getMessage());
         }
     }
 
@@ -76,16 +89,18 @@ public class ComunidadService {
                 comunidad.setId_comunidad(rs.getLong("id_comunidad"));
                 comunidad.setNombre(rs.getString("nombre"));
                 comunidad.setDescripcion(rs.getString("descripcion"));
-                comunidad.setFechaCreacion(rs.getDate("fechaCreacion"));
+                comunidad.setFechaCreacion(rs.getDate("fechaCreacion").toLocalDate());
                 comunidad.setCategoria(rs.getString("categoria"));
                 return comunidad;
             } else {
                 throw new Exception("No se encontró la comunidad con ID: " + id);
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new Exception("Error al obtener la comunidad por ID: " + e.getMessage());
         }
     }
 
-    /* 
     // Actualizar una comunidad
     public void actualizarComunidad(Comunidad comunidad) throws Exception {
         String sql = "UPDATE Comunidad SET nombre = ?, descripcion = ?, categoria = ? WHERE id_comunidad = ?";
@@ -99,6 +114,9 @@ public class ComunidadService {
             stmt.setLong(4, comunidad.getId_comunidad());
 
             stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new Exception("Error al actualizar la comunidad: " + e.getMessage());
         }
     }
 
@@ -111,7 +129,9 @@ public class ComunidadService {
 
             stmt.setLong(1, id);
             stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new Exception("Error al eliminar la comunidad: " + e.getMessage());
         }
     }
-        */
 }

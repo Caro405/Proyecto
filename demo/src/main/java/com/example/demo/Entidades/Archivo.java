@@ -1,19 +1,27 @@
 package com.example.demo.Entidades;
 
+
+import java.sql.Date;
+import jakarta.persistence.*;
+
 import lombok.Data;
 
 @Data
+@Entity
+@Table(name = "archivo")
 public class Archivo {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long archivoId;
 
-/*
-    String nombre;
-    String tipoDeSubida;
-    int tamano;
-    Date fechaSubida;
-*/
+    private String nombre;
+    private String tipoDeSubida;
+    private int tamano;
 
-    // Constructor vacío
-    public Archivo() {};
+    @Column(name = "fecha_subida")
+    private Date fechaSubida;
+
+    public Archivo() {}
 }
+    

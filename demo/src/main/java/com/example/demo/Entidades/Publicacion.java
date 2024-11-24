@@ -1,18 +1,33 @@
 package com.example.demo.Entidades;
 
-import java.util.List;
 
+import java.util.List;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
+@Entity
+@Table(name = "publicacion")
 public class Publicacion {
 
-    Long id_publicacion;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id_publicacion;
 
-    String titulo;
-    String descripcion;
+    private String titulo;
+    private String descripcion;
 
-    List<Comentario> comentarios;
+    @OneToMany(mappedBy = "publicacion", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comentario> comentarios;
+
+    public Publicacion() {
+    }
 
     public void setId(Long id) {
         this.id_publicacion = id;
@@ -21,5 +36,4 @@ public class Publicacion {
     public Long getId() {
         return id_publicacion;
     }
-
 }

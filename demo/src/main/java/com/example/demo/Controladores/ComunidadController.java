@@ -58,16 +58,16 @@ public class ComunidadController {
                 return "CrearComunidad";
             }
         }
-    
+  /* 
 
         // Mostrar la pantalla para explorar comunidades
     @GetMapping("/ExplorarComunidades")
     public String explorarComunidades(Model model) {
-        model.addAttribute("comunidades", comunidadService.obtenerTodas());
+        //model.addAttribute("comunidades", comunidadService.obtenerTodas());
         return "ExplorarComunidades";
     }
 
-
+*/
     // Mostrar la pantalla para el banco de archivos
     @GetMapping("/BancoDeArchivos")
     public String mostrarBancoDeArchivos() {

@@ -5,13 +5,12 @@ import lombok.Data;
 @Data
 public class Usuario {
 
-    Long id_usuario;
-    String nombre;
-    String correo;
-    String rol;
-    String contrasena;
+    private Long id_usuario; // Declarar como privado
+    private String nombre;
+    private String correo;
+    private String rol;
+    private String contrasena;
 
-    public Usuario() {};
-
-
+    // Constructor vacío (opcional con @Data)
+    public Usuario() {}
 }

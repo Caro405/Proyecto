@@ -12,6 +12,7 @@ services:
     expose:
       - 3306
     volumes:
+      - $PWD/scripts:/scripts
       - $PWD/scripts-contenedor:/docker-entrypoint-initdb.d
       - $PWD/var/lib/mysql
 
