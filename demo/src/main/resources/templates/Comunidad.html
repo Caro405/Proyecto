@@ -99,7 +99,6 @@
     </style>
 </head>
 <body>
-    <a href="/PantallaInicio/BancoDeArchivos" class="btn-top">Banco de Archivos</a>
     <div class="contenedor">
         <!-- Nombre de la Comunidad -->
         <h1 class="titulo" th:text="${comunidad.nombre}">Nombre de la Comunidad</h1>
@@ -117,7 +116,7 @@
         
         <!-- Botones de Acción -->
         <a href="/PantallaInicio/NuevaPublicacion" class="btn">Nueva Publicación</a>
-        <a th:href="@{'/PantallaInicio/Publicaciones/' + ${comunidad.id_comunidad}}"class="btn">Ver Detalles</a>
+        <a th:href="@{'/PantallaInicio/Publicaciones/' + ${comunidad.id_comunidad}}"class="btn">Ver publicaciones</a>
         <a href="/PantallaInicio/ExplorarComunidades" class="btn">Volver</a>
     </div>
 </body>

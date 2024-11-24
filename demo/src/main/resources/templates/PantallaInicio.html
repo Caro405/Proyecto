@@ -1,133 +1,84 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pantalla de Comunidad</title>
-<style>
-    :root {
-        --color-fondo: #eeded2;
-        --color-botones: #9c5b3d;
-        --color-borde: #000;
-        --color-icono: #d1d1d1;
-        --color-texto-botones: #fff;
-        --tamano-icono: 40px;
-        --espacio-botones: 20px;
-        --padding-botones: 15px;
-        --color-menu: #ffffff;
-        --color-menu-borde: #000;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8ebe1;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background-color: var(--color-fondo);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
+        .contenedor {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 80%;
+            max-width: 600px;
+            background-color: #fff4ed;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
 
-    .contenedor {
-        width: 300px;
-        background-color: var(--color-fondo);
-        text-align: center;
-        box-sizing: border-box;
-        position: relative;
-        padding-top: 60px;
-    }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2em;
+            color: #d35400;
+            text-align: center;
+        }
 
-    .menu-icono {
-        width: var(--tamano-icono);
-        height: var(--tamano-icono);
-        background-color: var(--color-icono);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 5px;
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        cursor: pointer;
-        border: 2px solid var(--color-borde);
-    }
+        .botones {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+        }
 
-    .menu-desplegable {
-        display: none;
-        position: absolute;
-        top: 50px;
-        left: 10px;
-        background-color: var(--color-menu);
-        border: 2px solid var(--color-menu-borde);
-        border-radius: 5px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        width: 150px;
-        z-index: 1000;
-    }
+        .boton {
+            padding: 15px;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            background-color: #d35400;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
 
-    .menu-desplegable a {
-        display: block;
-        padding: 10px;
-        color: var(--color-borde);
-        text-decoration: none;
-        font-size: 14px;
-    }
+        .boton:hover {
+            background-color: #e67e22;
+            transform: scale(1.05);
+        }
 
-    .menu-desplegable a:hover {
-        background-color: #e0e0e0;
-    }
+        .boton-salir {
+            background-color: #e74c3c;
+        }
 
-    .boton {
-        background-color: var(--color-botones);
-        border: 2px solid var(--color-borde);
-        color: var(--color-texto-botones);
-        text-align: center;
-        padding: var(--padding-botones);
-        margin: var(--espacio-botones) 0;
-        cursor: pointer;
-        width: 100%;
-        font-size: 16px;
-        border-radius: 5px;
-    }
-
-    .boton:first-of-type {
-        margin-top: 0;
-    }
-</style>
+        .boton-salir:hover {
+            background-color: #c0392b;
+        }
+    </style>
 </head>
 <body>
-
-<div class="contenedor">
-    <div class="menu-icono" onclick="toggleMenu()">☰</div>
-    <div class="menu-desplegable" id="menu">
-        <a href="#">Perfil</a>
-        <a href="#">Tus comunidades</a>
-        <a href="#">Explorar</a>
+    <div class="contenedor">
+        <h1>Bienvenido</h1>
+        <div class="botones">
+            <a href="/PantallaInicio/ExplorarComunidades" class="boton">Explorar comunidades</a>
+            <a href="/PantallaInicio/CrearComunidad" class="boton">Crear comunidad</a>
+            <a href="/Login" class="boton boton-salir">Salir</a>
+        </div>
     </div>
-
-    <button onclick="window.location.href='/PantallaInicio/ExplorarComunidades'" class="boton">Explorar comunidades</button>
-    
-    <button onclick="window.location.href='/PantallaInicio/CrearComunidad'" class="boton">Crear comunidad</button>
-
-
-<script>
-    function toggleMenu() {
-        var menu = document.getElementById("menu");
-        if (menu.style.display === "none" || menu.style.display === "") {
-            menu.style.display = "block";
-        } else {
-            menu.style.display = "none";
-        }
-    }
-
-    // Cierra el menú si se hace clic fuera de él
-    window.onclick = function(event) {
-        var menu = document.getElementById("menu");
-        if (!event.target.matches('.menu-icono')) {
-            menu.style.display = "none";
-        }
-    }
-</script>
-
 </body>
 </html>

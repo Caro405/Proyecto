@@ -12,7 +12,7 @@ import com.example.demo.Entidades.Usuario;
 @Service
 public class CuentaServicio {
 
-    private final String EMAIL_PATTERN = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$";
+    private final String EMAIL_PATTERN = "^[a-zA-Z0-9._%+-]+@javeriana.edu.co$";
     private final String PASSWORD_PATTERN = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[!@#\\$%\\^&\\*\\-_]).{8,}$";
 
     public boolean validarContrasena(String contrasena) {
