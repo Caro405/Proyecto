@@ -6,7 +6,7 @@ CREATE DATABASE IF NOT EXISTS red;
 USE red;
 
 -- Elimina las tablas en el orden correcto para evitar errores de dependencia
-DROP TABLE IF EXISTS comentario;
+
 DROP TABLE IF EXISTS usuario_comunidad;
 DROP TABLE IF EXISTS publicacion;
 DROP TABLE IF EXISTS archivo;
@@ -61,15 +61,6 @@ CREATE TABLE archivo (
     fecha DATE NOT NULL DEFAULT CURDATE()
 );
 
--- Crear tabla Comentario (depende de Publicacion y Usuario)
-CREATE TABLE comentario (
-    id_comentario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    texto TEXT NOT NULL,
-    id_publicacion INT NOT NULL, -- Relación con la Publicación
-    id_usuario INT NOT NULL, -- Relación con el usuario que creó el comentario
-    fecha_creacion DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT fk_comentario_publicacion FOREIGN KEY (id_publicacion) REFERENCES publicacion(id_publicacion) ON DELETE CASCADE,
-    CONSTRAINT fk_comentario_usuario FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE CASCADE
-);
+
 
 COMMIT;

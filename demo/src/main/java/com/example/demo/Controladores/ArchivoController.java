@@ -22,17 +22,21 @@ public class ArchivoController {
 
     private final ArchivoService archivoService;
 
+    // Constructor
     public ArchivoController(ArchivoService archivoService) {
         this.archivoService = archivoService;
     }
 
+    // Mostrar el banco de archivos
     @GetMapping
     public String mostrarBancoDeArchivos(Model model) {
+        // Llama al servicio para listar los archivos y añade al modelo
         List<Archivo> archivos = archivoService.listarArchivos();
-        model.addAttribute("archivos", archivos);
-        return "BancoDeArchivos";
+        model.addAttribute("archivos", archivos); // Añade los archivos al modelo para que se muestren en la vista
+        return "BancoDeArchivos"; // Retorna la vista del banco de archivos
     }
 
+    // Subir un archivo
     @PostMapping("/subir")
     public String subirArchivo(@RequestParam("archivo") MultipartFile archivo, RedirectAttributes redirectAttributes) {
         try {
@@ -42,9 +46,10 @@ public class ArchivoController {
             redirectAttributes.addFlashAttribute("error", "Error al subir el archivo.");
             e.printStackTrace();
         }
-        return "redirect:/BancoDeArchivos";
+        return "redirect:/BancoDeArchivos"; // Redirige al banco de archivos después de subir
     }
 
+    // Descargar un archivo
     @GetMapping("/descargar/{nombreArchivo}")
     public ResponseEntity<Resource> descargarArchivo(@PathVariable String nombreArchivo) {
         try {
@@ -65,4 +70,3 @@ public class ArchivoController {
         }
     }
 }
-

@@ -39,17 +39,22 @@ public class ArchivoService {
         List<Archivo> archivos = new ArrayList<>();
         File folder = new File(UPLOAD_DIR);
         File[] files = folder.listFiles();
-
+    
         if (files != null) {
             for (File file : files) {
-                archivos.add(new Archivo(
+                Archivo archivo = new Archivo(
                         file.getName(),
                         file.length(),
                         new Date(file.lastModified())
-                ));
+                );
+                archivos.add(archivo);
+                System.out.println("Archivo encontrado: " + archivo.getNombreArchivo());
             }
+        } else {
+            System.out.println("No se encontraron archivos en el directorio.");
         }
         return archivos;
     }
+    
 }
 
