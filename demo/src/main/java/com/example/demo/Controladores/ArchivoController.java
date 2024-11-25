@@ -2,7 +2,6 @@ package com.example.demo.Controladores;
 
 import com.example.demo.Entidades.Archivo;
 import com.example.demo.Servicio.ArchivoService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
@@ -23,7 +22,6 @@ public class ArchivoController {
 
     private final ArchivoService archivoService;
 
-    @Autowired
     public ArchivoController(ArchivoService archivoService) {
         this.archivoService = archivoService;
     }

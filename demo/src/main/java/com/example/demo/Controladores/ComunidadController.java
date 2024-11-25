@@ -108,7 +108,7 @@ public String listarPublicaciones(@PathVariable Long idComunidad, Model model) {
 
 
 
-    // Ver detalles de una comunidad (incluye publicaciones y comentarios)
+    // Ver detalles de una comunidad
   
     @GetMapping("/Comunidad/{idComunidad}")
 public String verDetallesComunidad(@PathVariable Long idComunidad, Model model) {
@@ -127,18 +127,13 @@ public String verDetallesComunidad(@PathVariable Long idComunidad, Model model) 
     @GetMapping("/NuevaPublicacion/{idComunidad}")
 public String nuevaPublicacion(@PathVariable Long idComunidad, Model model) {
     model.addAttribute("idComunidad", idComunidad);
-    return "NuevaPublicacion"; 
+    return "NuevaPublicacion";
 }
-    @GetMapping("/Publicacio/{idComunidad}")
+    @GetMapping("/Publicacion/{idComunidad}")
     public String Publicacion(@PathVariable Long idComunidad, Model model) {
         model.addAttribute("idComunidad", idComunidad);
-        return "Publicaciones"; 
+        return "Publicaciones";
 }
-
-
-
-
-  
 
 
 

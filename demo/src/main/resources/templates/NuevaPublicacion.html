@@ -105,28 +105,88 @@
 <body>
     <div class="contenedor">
         <h1>Nueva Publicación</h1>
-        <form action="/crearPublicacion" method="POST">
-            <!-- Campo oculto para pasar el ID de la comunidad -->
-            <input type="hidden" name="idComunidad" value="${idComunidad}">
-            
-            <!-- Campo Título -->
+        <form id="nueva-publicacion-form">
+            <!-- Campo para el título -->
             <div class="form-group">
                 <label for="titulo">Título</label>
                 <input type="text" id="titulo" name="titulo" placeholder="Escribe el título de tu publicación" required>
             </div>
             
-            <!-- Campo Descripción -->
+            <!-- Campo para la descripción -->
             <div class="form-group">
                 <label for="descripcion">Descripción</label>
                 <textarea id="descripcion" name="descripcion" placeholder="Escribe la descripción de tu publicación" required></textarea>
             </div>
+
+            <!-- Campo oculto para pasar el ID de la comunidad -->
+            <input type="hidden" id="idComunidad" name="idComunidad" value="1">
             
             <!-- Botones -->
-            <div class="botones"> 
-            <button type="button" class="btn volver" onclick="history.back()">Ver publicaciones</button>
-            <button type="button" class="btn volver" onclick="history.back()">Volver</button>
+            <div class="botones">
+                <button type="button" class="btn crear" onclick="crearPublicacion()">Crear</button>
+                <button type="button" class="btn volver" onclick="history.back()">volver</button>
             </div>
         </form>
+        
+        <!-- Contenedor para mensajes de éxito o error -->
+        <div id="mensaje" style="margin-top: 20px; color: green; display: none;">Publicación creada con éxito.</div>
+        <div id="error" style="margin-top: 20px; color: red; display: none;">Hubo un error al crear la publicación.</div>
     </div>
+
+    <script>
+        function crearPublicacion() {
+            // Capturar los valores del formulario
+            const titulo = document.getElementById('titulo').value;
+            const descripcion = document.getElementById('descripcion').value;
+            const idComunidad = document.getElementById('idComunidad').value;
+
+            // Crear el objeto con los datos
+            const publicacion = {
+                titulo: titulo,
+                descripcion: descripcion,
+                idComunidad: idComunidad
+            };
+
+            // Enviar la solicitud AJAX al backend
+            fetch('/Publicacion/Crear', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(publicacion)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('No se pudo guardar la publicación.');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Mostrar mensaje de éxito y limpiar el formulario
+                document.getElementById('mensaje').style.display = 'block';
+                document.getElementById('mensaje').textContent = 'Publicación creada con éxito.';
+                document.getElementById('titulo').value = '';
+                document.getElementById('descripcion').value = '';
+
+                // Opcional: Actualizar dinámicamente la lista de publicaciones
+                const publicacionesContainer = document.getElementById('publicaciones');
+                if (publicacionesContainer) {
+                    const nuevaPublicacion = document.createElement('div');
+                    nuevaPublicacion.innerHTML = `
+                        <h4>${data.titulo}</h4>
+                        <p>${data.descripcion}</p>
+                        <hr>
+                    `;
+                    publicacionesContainer.prepend(nuevaPublicacion);
+                }
+            })
+            .catch(error => {
+                // Mostrar mensaje de error
+                document.getElementById('error').style.display = 'block';
+                document.getElementById('error').textContent = 'Hubo un error al crear la publicación.';
+                console.error('Error:', error);
+            });
+        }
+    </script>
 </body>
 </html>
